@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand: deep green + cream + muted gold */
+  --color-pine-50: #f3f6f4;
+  --color-pine-100: #e0e9e4;
+  --color-pine-200: #c2d3ca;
+  --color-pine-300: #9ab5a8;
+  --color-pine-400: #6f9283;
+  --color-pine-500: #517566;
+  --color-pine-600: #3e5d51;
+  --color-pine-700: #334b42;
+  --color-pine-800: #263a33;
+  --color-pine-900: #16332b;
+  --color-pine-950: #0e211c;
+
+  --color-cream-50: #fdfcf9;
+  --color-cream-100: #faf7f0;
+  --color-cream-200: #f5efdf;
+  --color-cream-300: #ece2c8;
+
+  --color-gold-300: #ddc48d;
+  --color-gold-400: #d1b26a;
+  --color-gold-500: #c9a24b;
+  --color-gold-600: #a9833a;
+
+  --font-sans: "Anuphan", "Noto Sans Thai", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-gold-400);
+  color: var(--color-pine-950);
+}

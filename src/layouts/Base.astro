@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site, t, withBase, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  page: '' | 'services' | 'about' | 'contact';
+  faqSchema?: boolean;
+}
+
+const { lang, title, description, page, faqSchema = false } = Astro.props;
+const d = t(lang);
+const canonical = `${site.url}${lang === 'en' ? '/en' : ''}${page ? `/${page}/` : '/'}`;
+const altTh = `${site.url}${page ? `/${page}/` : '/'}`;
+const altEn = `${site.url}/en${page ? `/${page}/` : '/'}`;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['AccountingService', 'LocalBusiness'],
+  name: site.nameEn,
+  alternateName: [site.nameTh, 'TPN Audit'],
+  slogan: site.tagline,
+  url: site.url,
+  telephone: `+66${site.phone.slice(1)}`,
+  email: site.email,
+  priceRange: '฿5,000+',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bangkok',
+    addressCountry: 'TH',
+  },
+  areaServed: 'TH',
+  openingHours: 'Mo-Fr 09:00-18:00',
+  knowsAbout: ['Financial statement audit', 'TFRS for NPAEs', 'BOI audit', 'Tax advisory', 'Accounting systems'],
+};
+
+const faqData = faqSchema
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: d.services.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : null;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="th" href={altTh} />
+    <link rel="alternate" hreflang="en" href={altEn} />
+    <link rel="alternate" hreflang="x-default" href={altTh} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TPN Audit & Consulting" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${site.url}/og.png`} />
+    <meta property="og:locale" content={lang === 'th' ? 'th_TH' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    {faqData && <script type="application/ld+json" set:html={JSON.stringify(faqData)} />}
+  </head>
+  <body class="bg-cream-100 text-pine-950">
+    <Header lang={lang} page={page} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

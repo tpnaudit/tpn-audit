@@ -1,0 +1,61 @@
+---
+import { site, t, withBase, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const d = t(lang);
+const prefix = lang === 'en' ? '/en' : '';
+const year = new Date().getFullYear();
+
+const links = [
+  { href: withBase(`${prefix}/`), label: d.nav.home },
+  { href: withBase(`${prefix}/services/`), label: d.nav.services },
+  { href: withBase(`${prefix}/about/`), label: d.nav.about },
+  { href: withBase(`${prefix}/contact/`), label: d.nav.contact },
+];
+---
+
+<footer class="bg-pine-950 text-cream-200">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr]">
+    <div>
+      <div class="flex items-center gap-2.5">
+        <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-cream-200 text-sm font-bold text-pine-950">TPN</span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold">TPN Audit & Consulting</span>
+          <span class="block text-[10px] uppercase tracking-[0.18em] text-gold-400">{site.tagline}</span>
+        </span>
+      </div>
+      <p class="mt-4 max-w-md text-sm leading-relaxed text-cream-200/70">{d.footer.desc}</p>
+    </div>
+
+    <div>
+      <h3 class="text-xs font-semibold uppercase tracking-[0.15em] text-gold-400">{d.footer.linksHead}</h3>
+      <ul class="mt-4 space-y-2.5">
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.href} class="text-sm text-cream-200/80 transition-colors hover:text-cream-100">
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xs font-semibold uppercase tracking-[0.15em] text-gold-400">{d.footer.contactHead}</h3>
+      <ul class="mt-4 space-y-2.5 text-sm text-cream-200/80">
+        <li><a href={`tel:${site.phone}`} class="transition-colors hover:text-cream-100">{site.phoneDisplay}</a></li>
+        <li><a href={site.lineUrl} class="transition-colors hover:text-cream-100">LINE: {site.lineId}</a></li>
+        <li><a href={`mailto:${site.email}`} class="break-all transition-colors hover:text-cream-100">{site.email}</a></li>
+        <li>{lang === 'th' ? site.addressTh : site.addressEn}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-cream-200/10 py-5 text-center text-xs text-cream-200/50">
+    © {year} {site.nameEn} — {d.footer.rights}
+  </div>
+</footer>
