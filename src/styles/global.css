@@ -25,6 +25,7 @@
   --color-gold-600: #a9833a;
 
   --font-sans: "Anuphan", "Noto Sans Thai", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Noto Serif Thai", Georgia, "Times New Roman", serif;
 }
 
 html {

@@ -11,8 +11,9 @@ export const site = {
   tagline: 'Trusted Professional Network',
   phone: '0843756668',
   phoneDisplay: '084-375-6668',
-  lineId: '0843756668',
-  lineUrl: 'https://line.me/ti/p/~0843756668',
+  // LINE: เพิ่มเพื่อนด้วย "เบอร์โทร" (ไม่ใช่ LINE ID) — จึงไม่มีลิงก์ deep link ใช้วิธีคัดลอกเบอร์แทน
+  linePhone: '0843756668',
+  linePhoneDisplay: '084-375-6668',
   email: 'thanapoom.tpnaudit@gmail.com',
   // TODO: แก้ที่อยู่จริงของบริษัท
   addressTh: 'กรุงเทพมหานคร ประเทศไทย',
@@ -46,6 +47,7 @@ const th = {
     contactHead: 'ติดต่อเรา',
     linksHead: 'เมนู',
     rights: 'สงวนลิขสิทธิ์',
+    lineNote: 'เพิ่มเพื่อนด้วยเบอร์',
   },
   home: {
     metaTitle: 'TPN Audit & Consulting — สำนักงานสอบบัญชี โดยผู้สอบบัญชีรับอนุญาต (CPA)',
@@ -54,7 +56,7 @@ const th = {
     heroKicker: 'Trusted Professional Network',
     heroTitle: 'ความน่าเชื่อถือของงบการเงินคุณ\nคือมาตรฐานของเรา',
     heroSub:
-      'สำนักงานสอบบัญชีที่ดูแลโดยผู้สอบบัญชีรับอนุญาต (CPA) โดยตรง ด้วยประสบการณ์จากบริษัทตรวจสอบบัญชีระดับ Big 4 — ตรวจสอบบัญชี ภาษี และที่ปรึกษาทางการเงิน ครบจบในที่เดียว',
+      'สำนักงานสอบบัญชีที่ดูแลโดยผู้สอบบัญชีรับอนุญาต (CPA) โดยตรง ด้วยประสบการณ์จากบริษัทตรวจสอบบัญชีใน Big 4 — บริการตรวจสอบบัญชี และรับเป็นที่ปรึกษาทางการเงิน ภาษี รวมถึงวางระบบบัญชี',
     heroCta: 'ปรึกษาฟรี ไม่มีค่าใช้จ่าย',
     heroCta2: 'ดูบริการทั้งหมด',
     trust: [
@@ -181,8 +183,8 @@ const th = {
     sub: 'เครือข่ายมืออาชีพที่คุณวางใจได้',
     storyHead: 'เรื่องราวของเรา',
     story: [
-      'TPN Audit & Consulting ก่อตั้งขึ้นโดยทีมผู้สอบบัญชีรับอนุญาต (CPA) ที่ผ่านประสบการณ์ตรวจสอบบัญชีจากบริษัทตรวจสอบระดับ Big 4 ด้วยความเชื่อว่าธุรกิจไทยทุกขนาด — ไม่ใช่เฉพาะบริษัทมหาชนขนาดใหญ่ — ควรเข้าถึงงานสอบบัญชีที่มีคุณภาพระดับสากล ในราคาที่สมเหตุสมผล',
-      'ชื่อ TPN ย่อมาจาก "Trusted Professional Network" — เครือข่ายมืออาชีพที่วางใจได้ สะท้อนวิธีทำงานของเรา: ผสานความเชี่ยวชาญของผู้สอบบัญชี นักภาษี และที่ปรึกษาทางการเงิน เข้าเป็นทีมเดียวที่ดูแลลูกค้าอย่างใกล้ชิด ตอบทุกคำถามด้วยความรู้จริง และยืนอยู่ข้างความถูกต้องเสมอ',
+      'TPN Audit & Consulting ก่อตั้งขึ้นโดยทีมผู้สอบบัญชีรับอนุญาต (CPA) ที่ผ่านประสบการณ์ตรวจสอบบัญชีจากบริษัทตรวจสอบใน Big 4 ด้วยความเชื่อว่าธุรกิจไทยทุกขนาด — ไม่ใช่เฉพาะบริษัทมหาชนขนาดใหญ่ — ควรเข้าถึงงานสอบบัญชีที่มีคุณภาพระดับสากล ในราคาที่สมเหตุสมผล',
+      'ชื่อ TPN ย่อมาจาก "Trusted Professional Network" — เครือข่ายมืออาชีพที่วางใจได้ สะท้อนวิธีทำงานของเรา: ผสานความเชี่ยวชาญของผู้สอบบัญชีที่ดูแลลูกค้าอย่างใกล้ชิด',
       'วันนี้เราดูแลงานตรวจสอบมากกว่า 100 กิจการต่อปี ครอบคลุมธุรกิจซื้อมาขายไป บริการ การผลิต อสังหาริมทรัพย์ และกิจการที่ได้รับการส่งเสริม BOI โดยยังคงหลักการเดิมตั้งแต่วันแรก — งานทุกชิ้นต้องผ่านมือ CPA ผู้รับผิดชอบโดยตรง',
     ],
     meaningHead: 'ความหมายของ TPN',
@@ -216,7 +218,9 @@ const th = {
     infoHead: 'ช่องทางติดต่อ',
     callLabel: 'โทรหาเรา',
     lineLabel: 'Add LINE',
-    lineSub: 'ตอบเร็วที่สุดทางนี้',
+    lineSub: 'เพิ่มเพื่อนใน LINE ด้วยเบอร์โทร — ตอบเร็วที่สุดทางนี้',
+    lineCopy: 'แตะเพื่อคัดลอกเบอร์',
+    lineCopied: 'คัดลอกเบอร์แล้ว — เปิด LINE แล้วเพิ่มเพื่อนด้วยเบอร์นี้ได้เลย',
     emailLabel: 'อีเมล',
     addressLabel: 'ที่อยู่',
     hoursLabel: 'เวลาทำการ',
@@ -239,6 +243,7 @@ const en = {
     contactHead: 'Contact',
     linksHead: 'Menu',
     rights: 'All rights reserved.',
+    lineNote: 'add by phone number',
   },
   home: {
     metaTitle: 'TPN Audit & Consulting — Audit Firm Led by Licensed CPAs in Bangkok',
@@ -247,7 +252,7 @@ const en = {
     heroKicker: 'Trusted Professional Network',
     heroTitle: 'Your financial statements,\nheld to our highest standard',
     heroSub:
-      'An audit firm where every engagement is handled directly by licensed CPAs with Big 4 experience — audit, tax, and financial advisory under one roof.',
+      'An audit firm where every engagement is handled directly by licensed CPAs with experience at Big 4 audit firms — audit services, together with financial and tax advisory and accounting system setup.',
     heroCta: 'Get a Free Consultation',
     heroCta2: 'Explore Our Services',
     trust: [
@@ -375,7 +380,7 @@ const en = {
     storyHead: 'Our Story',
     story: [
       'TPN Audit & Consulting was founded by a team of licensed CPAs with audit experience at Big 4 firms, built on one belief: every Thai business — not just large public companies — deserves access to international-quality audit work at a sensible price.',
-      'TPN stands for "Trusted Professional Network," and it describes how we work: auditors, tax specialists, and financial advisors operating as one team that stays close to clients, answers every question with real expertise, and always stands on the side of integrity.',
+      'TPN stands for "Trusted Professional Network" — a network of professionals you can trust. It describes how we work: the combined expertise of auditors who stay close to every client.',
       'Today we handle more than 100 audit engagements a year across trading, services, manufacturing, real estate, and BOI-promoted businesses — while keeping the principle we started with: every engagement passes directly through the hands of a responsible CPA.',
     ],
     meaningHead: 'What TPN Means',
@@ -409,7 +414,9 @@ const en = {
     infoHead: 'Get in touch',
     callLabel: 'Call us',
     lineLabel: 'Add LINE',
-    lineSub: 'Fastest way to reach us',
+    lineSub: 'Add us on LINE by phone number — the fastest way to reach us',
+    lineCopy: 'Tap to copy the number',
+    lineCopied: 'Copied — open LINE and add friend by this phone number',
     emailLabel: 'Email',
     addressLabel: 'Address',
     hoursLabel: 'Office hours',

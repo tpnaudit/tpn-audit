@@ -18,25 +18,25 @@ const links = [
 ---
 
 <footer class="bg-pine-950 text-cream-200">
-  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr]">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr]">
     <div>
-      <div class="flex items-center gap-2.5">
-        <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-cream-200 text-sm font-bold text-pine-950">TPN</span>
+      <div class="flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center border-2 border-cream-200/70 font-display text-[13px] font-bold tracking-wider text-cream-200">TPN</span>
         <span class="leading-tight">
-          <span class="block text-[15px] font-semibold">TPN Audit & Consulting</span>
-          <span class="block text-[10px] uppercase tracking-[0.18em] text-gold-400">{site.tagline}</span>
+          <span class="block font-display text-[16px] font-semibold">TPN Audit & Consulting</span>
+          <span class="block text-[9.5px] uppercase tracking-[0.22em] text-gold-400">{site.tagline}</span>
         </span>
       </div>
-      <p class="mt-4 max-w-md text-sm leading-relaxed text-cream-200/70">{d.footer.desc}</p>
+      <p class="mt-5 max-w-md text-sm leading-relaxed text-cream-200/65">{d.footer.desc}</p>
     </div>
 
     <div>
-      <h3 class="text-xs font-semibold uppercase tracking-[0.15em] text-gold-400">{d.footer.linksHead}</h3>
-      <ul class="mt-4 space-y-2.5">
+      <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-400">{d.footer.linksHead}</h3>
+      <ul class="mt-5 space-y-3">
         {
           links.map((l) => (
             <li>
-              <a href={l.href} class="text-sm text-cream-200/80 transition-colors hover:text-cream-100">
+              <a href={l.href} class="text-sm text-cream-200/75 transition-colors hover:text-cream-100">
                 {l.label}
               </a>
             </li>
@@ -46,16 +46,16 @@ const links = [
     </div>
 
     <div>
-      <h3 class="text-xs font-semibold uppercase tracking-[0.15em] text-gold-400">{d.footer.contactHead}</h3>
-      <ul class="mt-4 space-y-2.5 text-sm text-cream-200/80">
+      <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-400">{d.footer.contactHead}</h3>
+      <ul class="mt-5 space-y-3 text-sm text-cream-200/75">
         <li><a href={`tel:${site.phone}`} class="transition-colors hover:text-cream-100">{site.phoneDisplay}</a></li>
-        <li><a href={site.lineUrl} class="transition-colors hover:text-cream-100">LINE: {site.lineId}</a></li>
+        <li>LINE: {site.linePhoneDisplay} <span class="text-cream-200/45">({d.footer.lineNote})</span></li>
         <li><a href={`mailto:${site.email}`} class="break-all transition-colors hover:text-cream-100">{site.email}</a></li>
         <li>{lang === 'th' ? site.addressTh : site.addressEn}</li>
       </ul>
     </div>
   </div>
-  <div class="border-t border-cream-200/10 py-5 text-center text-xs text-cream-200/50">
+  <div class="border-t border-cream-200/10 py-6 text-center text-xs tracking-wide text-cream-200/45">
     © {year} {site.nameEn} — {d.footer.rights}
   </div>
 </footer>

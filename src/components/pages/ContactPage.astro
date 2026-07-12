@@ -8,99 +8,115 @@ interface Props {
 const { lang } = Astro.props;
 const d = t(lang);
 const c = d.contact;
+
+const inputClass =
+  'mt-2 w-full border border-pine-900/25 bg-cream-100 px-4 py-3 text-sm text-pine-950 outline-none transition-colors focus:border-pine-900';
 ---
 
 <Base lang={lang} title={c.metaTitle} description={c.metaDesc} page="contact">
-  <section class="mx-auto max-w-6xl px-4 pt-16 sm:px-6 md:pt-20">
-    <h1 class="text-4xl font-bold tracking-tight text-pine-950 md:text-5xl">{c.head}</h1>
-    <p class="mt-4 max-w-2xl text-pine-700 md:text-lg">{c.sub}</p>
+  <!-- Page header -->
+  <section class="bg-pine-950 text-cream-100">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
+      <div class="flex items-center gap-4">
+        <span class="h-px w-10 bg-gold-500" aria-hidden="true"></span>
+        <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-gold-400">Contact</p>
+      </div>
+      <h1 class="mt-6 font-display text-4xl font-semibold text-cream-50 md:text-5xl">{c.head}</h1>
+      <p class="mt-5 max-w-2xl text-cream-200/75 md:text-lg">{c.sub}</p>
+    </div>
   </section>
 
-  <section class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.3fr_1fr]">
+  <section class="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.3fr_1fr]">
     <!-- Form -->
-    <div class="rounded-3xl border border-pine-900/10 bg-cream-50 p-7 md:p-10">
-      <h2 class="text-xl font-bold text-pine-950">{c.formHead}</h2>
-      <form id="contact-form" class="mt-6 grid gap-5 sm:grid-cols-2">
+    <div>
+      <h2 class="font-display text-2xl font-semibold text-pine-950">{c.formHead}</h2>
+      <form id="contact-form" class="mt-8 grid gap-6 sm:grid-cols-2">
         <label class="block text-sm font-medium text-pine-800">
           {c.name}
-          <input type="text" name="name" required class="mt-1.5 w-full rounded-xl border border-pine-900/15 bg-cream-100 px-4 py-2.5 text-sm text-pine-950 outline-none transition-colors focus:border-pine-700" />
+          <input type="text" name="name" required class={inputClass} />
         </label>
         <label class="block text-sm font-medium text-pine-800">
           {c.company}
-          <input type="text" name="company" class="mt-1.5 w-full rounded-xl border border-pine-900/15 bg-cream-100 px-4 py-2.5 text-sm text-pine-950 outline-none transition-colors focus:border-pine-700" />
+          <input type="text" name="company" class={inputClass} />
         </label>
         <label class="block text-sm font-medium text-pine-800">
           {c.phone}
-          <input type="tel" name="phone" required class="mt-1.5 w-full rounded-xl border border-pine-900/15 bg-cream-100 px-4 py-2.5 text-sm text-pine-950 outline-none transition-colors focus:border-pine-700" />
+          <input type="tel" name="phone" required class={inputClass} />
         </label>
         <label class="block text-sm font-medium text-pine-800">
           {c.email}
-          <input type="email" name="email" class="mt-1.5 w-full rounded-xl border border-pine-900/15 bg-cream-100 px-4 py-2.5 text-sm text-pine-950 outline-none transition-colors focus:border-pine-700" />
+          <input type="email" name="email" class={inputClass} />
         </label>
         <label class="block text-sm font-medium text-pine-800 sm:col-span-2">
           {c.message}
-          <textarea name="message" rows="5" required class="mt-1.5 w-full rounded-xl border border-pine-900/15 bg-cream-100 px-4 py-2.5 text-sm text-pine-950 outline-none transition-colors focus:border-pine-700"></textarea>
+          <textarea name="message" rows="6" required class={inputClass}></textarea>
         </label>
         <div class="sm:col-span-2">
-          <button type="submit" class="w-full rounded-full bg-pine-900 px-8 py-3.5 text-sm font-semibold text-cream-100 shadow-lg shadow-pine-900/15 transition-all hover:-translate-y-0.5 hover:bg-pine-800 sm:w-auto">
+          <button
+            type="submit"
+            class="w-full bg-pine-900 px-8 py-4 text-sm font-semibold tracking-wide text-cream-100 transition-colors hover:bg-pine-800 sm:w-auto"
+          >
             {c.submit}
           </button>
-          <p class="mt-3 text-xs leading-relaxed text-pine-600">{c.formNote}</p>
+          <p class="mt-4 text-xs leading-relaxed text-pine-600">{c.formNote}</p>
         </div>
       </form>
     </div>
 
     <!-- Contact channels -->
-    <div class="space-y-4">
-      <a
-        href={site.lineUrl}
-        target="_blank"
-        rel="noopener"
-        class="flex items-center gap-4 rounded-2xl bg-[#06C755] p-6 text-white shadow-lg shadow-[#06C755]/20 transition-all hover:-translate-y-0.5"
+    <div class="space-y-5">
+      <!-- LINE: add by phone number (no deep link) — copies number on click -->
+      <button
+        id="line-copy"
+        type="button"
+        class="block w-full cursor-pointer border-l-4 border-[#06C755] bg-pine-950 p-6 text-left transition-colors hover:bg-pine-900"
       >
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2C6.477 2 2 5.66 2 10.18c0 4.05 3.575 7.44 8.405 8.08.327.07.773.217.886.498.101.256.066.657.032.916l-.143.86c-.044.256-.203 1.001.878.546 1.08-.455 5.83-3.435 7.954-5.88C21.58 13.53 22 11.93 22 10.18 22 5.66 17.523 2 12 2z" />
-        </svg>
-        <span>
-          <span class="block text-lg font-bold">{c.lineLabel}</span>
-          <span class="block text-sm text-white/85">ID: {site.lineId} — {c.lineSub}</span>
+        <span class="flex items-center gap-4">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="#06C755" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 5.66 2 10.18c0 4.05 3.575 7.44 8.405 8.08.327.07.773.217.886.498.101.256.066.657.032.916l-.143.86c-.044.256-.203 1.001.878.546 1.08-.455 5.83-3.435 7.954-5.88C21.58 13.53 22 11.93 22 10.18 22 5.66 17.523 2 12 2z" />
+          </svg>
+          <span>
+            <span class="block font-display text-lg font-semibold text-cream-50">{c.lineLabel} — {site.linePhoneDisplay}</span>
+            <span class="mt-1 block text-[13px] leading-relaxed text-cream-200/70">{c.lineSub}</span>
+            <span id="line-copy-hint" class="mt-2 block text-xs font-semibold tracking-wide text-[#06C755]">{c.lineCopy}</span>
+          </span>
         </span>
-      </a>
+      </button>
 
-      <a href={`tel:${site.phone}`} class="flex items-center gap-4 rounded-2xl border border-pine-900/10 bg-cream-50 p-6 transition-all hover:-translate-y-0.5 hover:border-pine-900/25">
-        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-pine-900/5 text-pine-800">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <a href={`tel:${site.phone}`} class="flex items-center gap-4 border border-pine-900/20 bg-cream-50 p-6 transition-colors hover:border-pine-900/50">
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center border border-pine-900/15 text-pine-800">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
           </svg>
         </span>
         <span>
-          <span class="block text-sm font-medium text-pine-600">{c.callLabel}</span>
-          <span class="block text-lg font-bold text-pine-950">{site.phoneDisplay}</span>
+          <span class="block text-xs font-medium uppercase tracking-[0.15em] text-pine-600">{c.callLabel}</span>
+          <span class="mt-1 block font-display text-lg font-semibold text-pine-950">{site.phoneDisplay}</span>
         </span>
       </a>
 
-      <a href={`mailto:${site.email}`} class="flex items-center gap-4 rounded-2xl border border-pine-900/10 bg-cream-50 p-6 transition-all hover:-translate-y-0.5 hover:border-pine-900/25">
-        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-pine-900/5 text-pine-800">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <a href={`mailto:${site.email}`} class="flex items-center gap-4 border border-pine-900/20 bg-cream-50 p-6 transition-colors hover:border-pine-900/50">
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center border border-pine-900/15 text-pine-800">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" />
           </svg>
         </span>
         <span class="min-w-0">
-          <span class="block text-sm font-medium text-pine-600">{c.emailLabel}</span>
-          <span class="block break-all text-[15px] font-semibold text-pine-950">{site.email}</span>
+          <span class="block text-xs font-medium uppercase tracking-[0.15em] text-pine-600">{c.emailLabel}</span>
+          <span class="mt-1 block break-all text-[15px] font-semibold text-pine-950">{site.email}</span>
         </span>
       </a>
 
-      <div class="rounded-2xl border border-pine-900/10 bg-cream-50 p-6">
+      <div class="border border-pine-900/20 bg-cream-50 p-6">
         <div class="flex items-start gap-4">
-          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-pine-900/5 text-pine-800">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center border border-pine-900/15 text-pine-800">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z" /><circle cx="12" cy="10" r="3" />
             </svg>
           </span>
           <div>
-            <span class="block text-sm font-medium text-pine-600">{c.addressLabel}</span>
-            <span class="block text-[15px] font-semibold text-pine-950">{lang === 'th' ? site.addressTh : site.addressEn}</span>
+            <span class="block text-xs font-medium uppercase tracking-[0.15em] text-pine-600">{c.addressLabel}</span>
+            <span class="mt-1 block text-[15px] font-semibold text-pine-950">{lang === 'th' ? site.addressTh : site.addressEn}</span>
             <span class="mt-2 block text-sm text-pine-600">{c.hoursLabel}: {lang === 'th' ? site.hoursTh : site.hoursEn}</span>
           </div>
         </div>
@@ -111,7 +127,7 @@ const c = d.contact;
   <!-- Map -->
   <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
     <h2 class="sr-only">{c.mapHead}</h2>
-    <div class="overflow-hidden rounded-3xl border border-pine-900/10">
+    <div class="overflow-hidden border border-pine-900/20">
       <iframe
         src={site.mapEmbed}
         width="100%"
@@ -126,7 +142,7 @@ const c = d.contact;
   </section>
 </Base>
 
-<script define:vars={{ email: site.email }}>
+<script define:vars={{ email: site.email, linePhone: site.linePhone, lineCopied: c.lineCopied, lineCopy: c.lineCopy }}>
   document.getElementById('contact-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
     const f = new FormData(e.target);
@@ -140,5 +156,19 @@ const c = d.contact;
       `${f.get('message')}`,
     ].join('\n');
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+
+  const lineBtn = document.getElementById('line-copy');
+  const lineHint = document.getElementById('line-copy-hint');
+  lineBtn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(linePhone);
+      if (lineHint) lineHint.textContent = lineCopied;
+      setTimeout(() => {
+        if (lineHint) lineHint.textContent = lineCopy;
+      }, 4000);
+    } catch {
+      window.location.href = `tel:${linePhone}`;
+    }
   });
 </script>
