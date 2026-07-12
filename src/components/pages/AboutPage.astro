@@ -15,10 +15,7 @@ const prefix = lang === 'en' ? '/en' : '';
   <!-- Page header -->
   <section class="bg-pine-950 text-cream-100">
     <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
-      <div class="flex items-center gap-4">
-        <span class="h-px w-10 bg-gold-500" aria-hidden="true"></span>
-        <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-gold-400">About</p>
-      </div>
+      <span class="block h-px w-10 bg-gold-500" aria-hidden="true"></span>
       <h1 class="mt-6 font-display text-4xl font-semibold text-cream-50 md:text-5xl">{a.head}</h1>
       <p class="mt-5 text-lg text-gold-300">{a.sub}</p>
     </div>
@@ -28,10 +25,10 @@ const prefix = lang === 'en' ? '/en' : '';
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
     <div class="grid gap-10 md:grid-cols-[1fr_2fr]">
       <div>
-        <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold-600">Our Story</p>
-        <h2 class="mt-3 font-display text-2xl font-semibold text-pine-950 md:text-3xl">{a.storyHead}</h2>
+        <span class="block h-px w-10 bg-gold-500" aria-hidden="true"></span>
+        <h2 class="mt-5 font-display text-2xl font-semibold text-pine-950 md:text-3xl">{a.storyHead}</h2>
       </div>
-      <div class="space-y-6 border-l-2 border-gold-500 pl-6 md:pl-10">
+      <div class="max-w-[68ch] space-y-6">
         {a.story.map((p) => <p class="leading-relaxed text-pine-800">{p}</p>)}
       </div>
     </div>
@@ -40,8 +37,8 @@ const prefix = lang === 'en' ? '/en' : '';
   <!-- TPN meaning -->
   <section class="border-y border-pine-900/10 bg-cream-50">
     <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-24">
-      <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold-600">Trusted Professional Network</p>
-      <h2 class="mt-3 font-display text-3xl font-semibold text-pine-950 md:text-4xl">{a.meaningHead}</h2>
+      <span class="block h-px w-10 bg-gold-500" aria-hidden="true"></span>
+      <h2 class="mt-5 font-display text-3xl font-semibold text-pine-950 md:text-4xl">{a.meaningHead}</h2>
       <div class="mt-14 grid gap-x-14 gap-y-12 md:grid-cols-3">
         {
           a.meaning.map((m) => (
@@ -60,14 +57,14 @@ const prefix = lang === 'en' ? '/en' : '';
 
   <!-- Values -->
   <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-24">
-    <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold-600">Our Approach</p>
-    <h2 class="mt-3 font-display text-3xl font-semibold text-pine-950 md:text-4xl">{a.valuesHead}</h2>
-    <div class="mt-14 grid gap-x-14 gap-y-12 md:grid-cols-2">
+    <span class="block h-px w-10 bg-gold-500" aria-hidden="true"></span>
+    <h2 class="mt-5 font-display text-3xl font-semibold text-pine-950 md:text-4xl">{a.valuesHead}</h2>
+    <div class="mt-12 border-t border-pine-900/10">
       {
         a.values.map((v) => (
-          <div class="border-l-2 border-gold-500 pl-6 md:pl-8">
-            <h3 class="font-display text-lg font-semibold text-pine-950 md:text-xl">{v.title}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-pine-700">{v.desc}</p>
+          <div class="grid gap-3 border-b border-pine-900/10 py-7 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-14 md:py-9">
+            <h3 class="font-display text-lg font-semibold leading-snug text-pine-950 md:text-xl">{v.title}</h3>
+            <p class="max-w-[62ch] text-[15px] leading-relaxed text-pine-700">{v.desc}</p>
           </div>
         ))
       }

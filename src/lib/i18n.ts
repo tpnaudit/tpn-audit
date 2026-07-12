@@ -52,15 +52,15 @@ const th = {
   home: {
     metaTitle: 'TPN Audit & Consulting — สำนักงานสอบบัญชี โดยผู้สอบบัญชีรับอนุญาต (CPA)',
     metaDesc:
-      'สำนักงานสอบบัญชีคุณภาพ รับตรวจสอบบัญชี ตรวจงบการเงิน TFRS for NPAEs ตรวจสอบกิจการ BOI ที่ปรึกษาภาษีและวางระบบบัญชี โดยทีม CPA ประสบการณ์ Big 4 ราคาเริ่มต้น 5,000 บาท',
+      'สำนักงานสอบบัญชีคุณภาพ รับตรวจสอบบัญชี ตรวจงบการเงิน TFRS for NPAEs ตรวจสอบกิจการ BOI ที่ปรึกษาภาษีและวางระบบบัญชี โดยทีม CPA ประสบการณ์ Big 4 ค่าบริการโปร่งใส สมเหตุสมผล',
     heroKicker: 'Trusted Professional Network',
-    heroTitle: 'ความน่าเชื่อถือของงบการเงินคุณ\nคือมาตรฐานของเรา',
+    heroTitle: 'ยกระดับความน่าเชื่อถือให้งบการเงินของคุณ\nด้วยมาตรฐานวิชาชีพระดับสากล',
     heroSub:
       'สำนักงานสอบบัญชีที่ดูแลโดยผู้สอบบัญชีรับอนุญาต (CPA) โดยตรง ด้วยประสบการณ์จากบริษัทตรวจสอบบัญชีใน Big 4 — บริการตรวจสอบบัญชี และรับเป็นที่ปรึกษาทางการเงิน ภาษี รวมถึงวางระบบบัญชี',
     heroCta: 'ปรึกษาฟรี ไม่มีค่าใช้จ่าย',
     heroCta2: 'ดูบริการทั้งหมด',
     trust: [
-      { value: '10+', label: 'ปีประสบการณ์วิชาชีพ' },
+      { value: 'หลากหลายธุรกิจ', label: 'ประสบการณ์งานตรวจสอบ' },
       { value: '100+', label: 'งานตรวจสอบต่อปี' },
       { value: 'CPA', label: 'ผู้สอบบัญชีรับอนุญาต' },
       { value: 'Big 4', label: 'ประสบการณ์ระดับสากล' },
@@ -69,23 +69,23 @@ const th = {
     servicesSub: 'ครอบคลุมทุกความต้องการด้านบัญชี ภาษี และการเงินของธุรกิจ',
     servicesMore: 'ดูรายละเอียด',
     whyHead: 'ทำไมต้อง TPN',
-    whySub: 'เราตั้งใจให้บริการสอบบัญชีเป็นเรื่องง่ายและคุ้มค่าสำหรับธุรกิจของคุณ',
+    whySub: 'มุ่งมั่นให้บริการตรวจสอบบัญชีที่โปร่งใส ได้มาตรฐาน ในอัตราค่าบริการที่สมเหตุสมผล',
     why: [
       {
         title: 'ดูแลโดย CPA โดยตรง',
-        desc: 'ทุกงานตรวจสอบและเซ็นรับรองโดยผู้สอบบัญชีรับอนุญาตตัวจริง ไม่ส่งต่องานให้บุคคลภายนอก คุณคุยกับผู้รับผิดชอบงานได้โดยตรงตลอดโครงการ',
+        desc: 'ทุกงานตรวจสอบและลงลายมือชื่อรับรองโดยผู้สอบบัญชีรับอนุญาต ไม่ส่งต่องานให้บุคคลภายนอก ท่านสามารถสื่อสารและรับคำปรึกษาจากผู้สอบบัญชีผู้รับผิดชอบงานได้โดยตรงตลอดระยะเวลาการให้บริการ',
       },
       {
         title: 'มาตรฐานจาก Big 4',
         desc: 'ทีมงานผ่านประสบการณ์จากบริษัทตรวจสอบบัญชีชั้นนำระดับโลก นำวิธีการทำงานและการควบคุมคุณภาพระดับสากลมาใช้กับงานทุกขนาด',
       },
       {
-        title: 'ตอบเร็ว ไม่ทิ้งงาน',
+        title: 'ให้บริการอย่างใกล้ชิดและตรงต่อเวลา',
         desc: 'ติดต่อได้ทั้งโทรศัพท์และ LINE ตอบคำถามภายใน 24 ชั่วโมง วางแผนงานล่วงหน้าชัดเจน แจ้งความคืบหน้าสม่ำเสมอจนถึงวันส่งงบ',
       },
       {
-        title: 'เข้าใจ SME ราคายุติธรรม',
-        desc: 'ค่าบริการชัดเจนตั้งแต่ต้น เริ่มต้นเพียง 5,000 บาท ประเมินตามปริมาณงานจริง ไม่มีค่าใช้จ่ายแอบแฝง เหมาะกับธุรกิจขนาดเล็กถึงขนาดกลาง',
+        title: 'โครงสร้างค่าบริการที่โปร่งใส',
+        desc: 'ประเมินค่าบริการตามปริมาณงานและขนาดธุรกิจอย่างสมเหตุสมผล แจ้งเป็นลายลักษณ์อักษรก่อนเริ่มงานทุกครั้ง ไม่มีค่าใช้จ่ายแอบแฝง เหมาะกับธุรกิจขนาดเล็กถึงขนาดกลาง',
       },
     ],
     ctaHead: 'พร้อมเริ่มต้นแล้วหรือยัง?',
@@ -248,15 +248,15 @@ const en = {
   home: {
     metaTitle: 'TPN Audit & Consulting — Audit Firm Led by Licensed CPAs in Bangkok',
     metaDesc:
-      'Quality audit firm in Bangkok. Statutory audits under TFRS for NPAEs, BOI audits, tax advisory, and accounting system design by CPAs with Big 4 experience. Fees from THB 5,000.',
+      'Quality audit firm in Bangkok. Statutory audits under TFRS for NPAEs, BOI audits, tax advisory, and accounting system design by CPAs with Big 4 experience. Transparent, reasonable fees.',
     heroKicker: 'Trusted Professional Network',
-    heroTitle: 'Your financial statements,\nheld to our highest standard',
+    heroTitle: 'Elevating the credibility of your financial statements\nthrough international professional standards',
     heroSub:
       'An audit firm where every engagement is handled directly by licensed CPAs with experience at Big 4 audit firms — audit services, together with financial and tax advisory and accounting system setup.',
     heroCta: 'Get a Free Consultation',
     heroCta2: 'Explore Our Services',
     trust: [
-      { value: '10+', label: 'Years of experience' },
+      { value: 'Multi-industry', label: 'Audit experience' },
       { value: '100+', label: 'Audits per year' },
       { value: 'CPA', label: 'Licensed auditors' },
       { value: 'Big 4', label: 'International background' },
@@ -265,23 +265,23 @@ const en = {
     servicesSub: 'Comprehensive accounting, tax, and finance services for your business',
     servicesMore: 'Learn more',
     whyHead: 'Why TPN',
-    whySub: 'We make professional auditing simple, responsive, and worth every baht.',
+    whySub: 'Committed to transparent, standards-driven audit services at reasonable professional fees.',
     why: [
       {
         title: 'Direct CPA involvement',
-        desc: 'Every engagement is performed and signed off by a licensed CPA — never outsourced. You speak directly with the person responsible for your audit, from kickoff to filing.',
+        desc: 'Every engagement is performed and signed off by a licensed CPA — never outsourced. You communicate and consult directly with the engagement CPA throughout the entire service period.',
       },
       {
         title: 'Big 4 standards',
         desc: 'Our team trained at leading global audit firms and applies the same methodology and quality controls to engagements of every size.',
       },
       {
-        title: 'Fast, reliable communication',
+        title: 'Attentive, on-time service',
         desc: 'Reach us by phone or LINE and get answers within 24 hours. Clear timelines, regular progress updates, and no last-minute surprises.',
       },
       {
-        title: 'Fair pricing for SMEs',
-        desc: 'Transparent fees from THB 5,000, quoted upfront based on actual scope. No hidden charges — built for small and medium businesses.',
+        title: 'Transparent fee structure',
+        desc: 'Fees are assessed on actual scope and business size, quoted in writing before any engagement begins. No hidden charges — built for small and medium businesses.',
       },
     ],
     ctaHead: 'Ready to get started?',

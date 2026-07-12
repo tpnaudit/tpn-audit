@@ -42,3 +42,25 @@ body {
   background: var(--color-gold-400);
   color: var(--color-pine-950);
 }
+
+/* Hero entrance — runs only when the user allows motion; content is fully visible otherwise */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+  .rise {
+    animation: rise 0.8s cubic-bezier(0.19, 1, 0.22, 1) both;
+  }
+  .rise-1 {
+    animation-delay: 0.07s;
+  }
+  .rise-2 {
+    animation-delay: 0.14s;
+  }
+  .rise-3 {
+    animation-delay: 0.22s;
+  }
+}
