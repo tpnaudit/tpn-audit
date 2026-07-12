@@ -26,13 +26,13 @@ const prefix = lang === 'en' ? '/en' : '';
       <div class="rise rise-3 mt-10 flex flex-wrap items-center gap-4 pb-16 md:pb-20">
         <a
           href={withBase(`${prefix}/contact/`)}
-          class="bg-gold-500 px-7 py-3.5 text-sm font-semibold tracking-wide text-pine-950 transition-colors hover:bg-gold-400"
+          class="rounded-md bg-gold-500 px-7 py-3.5 text-sm font-bold tracking-wide text-pine-950 transition-colors hover:bg-gold-400"
         >
           {h.heroCta}
         </a>
         <a
           href={withBase(`${prefix}/services/`)}
-          class="border border-cream-200/40 px-7 py-3.5 text-sm font-semibold tracking-wide text-cream-100 transition-colors hover:border-cream-100 hover:bg-cream-100/5"
+          class="rounded-md border border-cream-200/40 px-7 py-3.5 text-sm font-semibold tracking-wide text-cream-100 transition-colors hover:border-cream-100 hover:bg-cream-100/5"
         >
           {h.heroCta2}
         </a>
@@ -107,16 +107,14 @@ const prefix = lang === 'en' ? '/en' : '';
     </div>
   </section>
 
-  <!-- CTA: full-width dark band -->
+  <!-- CTA: full-width dark band, center-aligned stack -->
   <section class="bg-pine-950 text-cream-100">
-    <div class="mx-auto flex max-w-6xl flex-col items-start gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between md:py-16">
-      <div>
-        <h2 class="font-display text-3xl font-semibold text-cream-50 md:text-4xl">{h.ctaHead}</h2>
-        <p class="mt-4 max-w-xl text-cream-200/75">{h.ctaSub}</p>
-      </div>
+    <div class="mx-auto flex max-w-3xl flex-col items-center px-4 py-14 text-center sm:px-6 md:py-16">
+      <h2 class="font-display text-3xl font-semibold text-cream-50 md:text-4xl">{h.ctaHead}</h2>
+      <p class="mt-4 max-w-xl leading-relaxed text-cream-200/75">{h.ctaSub}</p>
       <a
         href={withBase(`${prefix}/contact/`)}
-        class="shrink-0 bg-gold-500 px-8 py-4 text-sm font-semibold tracking-wide text-pine-950 transition-colors hover:bg-gold-400"
+        class="mt-8 rounded-md bg-gold-500 px-8 py-4 text-sm font-bold tracking-wide text-pine-950 transition-colors hover:bg-gold-400"
       >
         {h.ctaBtn}
       </a>
