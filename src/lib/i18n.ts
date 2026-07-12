@@ -95,11 +95,11 @@ const th = {
   services: {
     metaTitle: 'บริการตรวจสอบบัญชี ภาษี และที่ปรึกษา | TPN Audit & Consulting',
     metaDesc:
-      'รับตรวจสอบบัญชี งบการเงิน TFRS for NPAEs ตรวจสอบกิจการ BOI ที่ปรึกษาภาษี วางระบบบัญชีและที่ปรึกษาทางการเงิน โดยผู้สอบบัญชีรับอนุญาต ราคาเริ่มต้น 5,000 บาท',
+      'รับตรวจสอบบัญชี งบการเงิน TFRS for NPAEs ตรวจสอบกิจการ BOI ที่ปรึกษาภาษี วางระบบบัญชีและที่ปรึกษาทางการเงิน โดยผู้สอบบัญชีรับอนุญาต ค่าบริการโปร่งใส สมเหตุสมผล',
     head: 'บริการของเรา',
     sub: 'บริการด้านบัญชี ภาษี และการเงินครบวงจร โดยทีมผู้สอบบัญชีรับอนุญาต',
-    priceNote: 'ค่าบริการเริ่มต้น 5,000 บาท — ประเมินตามขนาดและความซับซ้อนของกิจการ ขอใบเสนอราคาได้ฟรี',
-    priceLabel: 'เริ่มต้น 5,000 บาท',
+    priceNote: 'โครงสร้างค่าบริการโปร่งใส ประเมินตามขนาดและความซับซ้อนของกิจการ — ขอใบเสนอราคาได้ฟรี ไม่มีข้อผูกมัด',
+    priceLabel: 'ประเมินราคาตามขอบเขตงาน',
     faqHead: 'คำถามที่พบบ่อย',
     faqSub: 'รวมคำตอบสำหรับคำถามที่ผู้ประกอบการถามเราบ่อยที่สุด',
     list: [
@@ -158,8 +158,8 @@ const th = {
         a: 'ขึ้นกับขนาดกิจการและความพร้อมของเอกสาร โดยทั่วไปงบขนาดเล็กที่เอกสารครบใช้เวลาประมาณ 1–2 สัปดาห์ กิจการขนาดกลางประมาณ 3–4 สัปดาห์ หากติดต่อเราล่วงหน้าก่อนสิ้นรอบบัญชี จะช่วยให้วางแผนงานได้ดีขึ้นและปิดงบได้เร็วขึ้นมาก',
       },
       {
-        q: 'ค่าสอบบัญชีคิดอย่างไร เริ่มต้นเท่าไหร่?',
-        a: 'ค่าบริการเริ่มต้นที่ 5,000 บาท สำหรับงบที่ไม่มีความเคลื่อนไหวหรือรายการน้อย และประเมินเพิ่มตามปริมาณรายการ ความซับซ้อนของธุรกิจ และจำนวนบริษัทในเครือ เราแจ้งราคาชัดเจนเป็นลายลักษณ์อักษรก่อนเริ่มงานทุกครั้ง ไม่มีค่าใช้จ่ายแอบแฝง',
+        q: 'ค่าสอบบัญชีคิดอย่างไร?',
+        a: 'ค่าบริการประเมินตามปริมาณรายการ ความซับซ้อนของธุรกิจ และจำนวนบริษัทในเครือ โดยงบที่ไม่มีความเคลื่อนไหวหรือรายการน้อยจะอยู่ในระดับเริ่มต้น เราแจ้งราคาชัดเจนเป็นลายลักษณ์อักษรก่อนเริ่มงานทุกครั้ง ไม่มีค่าใช้จ่ายแอบแฝง ขอใบเสนอราคาได้ฟรีโดยไม่มีข้อผูกมัด',
       },
       {
         q: 'ต้องส่งงบการเงินภายในเมื่อไหร่ ถ้าส่งช้ามีค่าปรับหรือไม่?',
@@ -291,11 +291,11 @@ const en = {
   services: {
     metaTitle: 'Audit, Tax & Advisory Services | TPN Audit & Consulting',
     metaDesc:
-      'Statutory audits under TFRS for NPAEs, BOI audits, tax advisory, accounting system design, and financial advisory by licensed CPAs. Fees from THB 5,000.',
+      'Statutory audits under TFRS for NPAEs, BOI audits, tax advisory, accounting system design, and financial advisory by licensed CPAs. Transparent, reasonable fees.',
     head: 'Our Services',
     sub: 'Full-scope accounting, tax, and finance services from a licensed CPA team',
-    priceNote: 'Fees start at THB 5,000, quoted by business size and complexity. Free, no-obligation quotations.',
-    priceLabel: 'From THB 5,000',
+    priceNote: 'Transparent fee structure, assessed by business size and complexity. Free, no-obligation quotations.',
+    priceLabel: 'Quoted by scope of work',
     faqHead: 'Frequently Asked Questions',
     faqSub: 'Answers to the questions business owners ask us most often',
     list: [
@@ -355,7 +355,7 @@ const en = {
       },
       {
         q: 'How are audit fees calculated?',
-        a: 'Fees start at THB 5,000 for dormant or low-activity companies, and scale with transaction volume, business complexity, and the number of group entities. We always quote in writing before starting — no hidden charges.',
+        a: 'Fees are assessed on transaction volume, business complexity, and the number of group entities, with dormant or low-activity companies at our starting rate. We always quote in writing before starting — no hidden charges, and quotations are free with no obligation.',
       },
       {
         q: 'What are the filing deadlines, and are there penalties for late filing?',
