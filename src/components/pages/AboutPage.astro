@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { t, withBase, type Lang } from '../../lib/i18n';
+import { site, t, withBase, type Lang } from '../../lib/i18n';
 
 interface Props {
   lang: Lang;
@@ -28,8 +28,19 @@ const prefix = lang === 'en' ? '/en' : '';
         <span class="block h-px w-10 bg-gold-500" aria-hidden="true"></span>
         <h2 class="mt-5 font-display text-2xl font-semibold text-pine-950 md:text-3xl">{a.storyHead}</h2>
       </div>
-      <div class="max-w-[68ch] space-y-6">
-        {a.story.map((p) => <p class="leading-relaxed text-pine-800">{p}</p>)}
+      <div class="max-w-[68ch]">
+        <div class="space-y-6">
+          {a.story.map((p) => <p class="leading-relaxed text-pine-800">{p}</p>)}
+        </div>
+        <div class="mt-10 border-t border-pine-900/10 pt-6 text-sm">
+          <h3 class="font-display font-semibold text-pine-950">{a.regHead}</h3>
+          <dl class="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-[auto_minmax(0,1fr)]">
+            <dt class="text-pine-600">{a.regNameLabel}</dt>
+            <dd class="font-medium text-pine-900">{lang === 'th' ? site.legalNameTh : site.nameEn}</dd>
+            <dt class="text-pine-600">{a.regAddressLabel}</dt>
+            <dd class="leading-relaxed text-pine-900">{lang === 'th' ? site.addressTh : site.addressEn}</dd>
+          </dl>
+        </div>
       </div>
     </div>
   </section>

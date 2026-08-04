@@ -7,6 +7,10 @@ export type Lang = 'th' | 'en';
 
 const addressTh = '46/933 ถนนอโศก-ดินแดง แขวงบางกะปิ เขตห้วยขวาง กรุงเทพมหานคร 10310';
 
+// Google Maps หาเลขที่ 46/933 ไม่เจอ (ตัดเหลือ "46" แล้วไปปักที่เขตดินแดงซึ่งผิดเขต)
+// จึงชี้ระดับแขวงไว้ก่อน — TODO: แทนด้วยลิงก์ปักหมุดจริงจาก Google Maps > แชร์ > ฝังแผนที่
+const mapQuery = 'แขวงบางกะปิ เขตห้วยขวาง กรุงเทพมหานคร 10310';
+
 export const site = {
   nameTh: 'ทีพีเอ็น ออดิท แอนด์ คอนซัลติ้ง',
   legalNameTh: 'บริษัท ทีพีเอ็น ออดิท แอนด์ คอนซัลติ้ง จำกัด',
@@ -21,7 +25,7 @@ export const site = {
   // TODO: แก้เวลาทำการจริง
   hoursTh: 'จันทร์–ศุกร์ 9:00–18:00 น.',
   hoursEn: 'Mon–Fri 9:00–18:00',
-  mapEmbed: `https://www.google.com/maps?q=${encodeURIComponent(addressTh)}&output=embed`,
+  mapEmbed: `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=15&output=embed`,
   url: 'https://tpnaudit.github.io/tpn-audit',
 } as const;
 
@@ -211,6 +215,9 @@ const th = {
       'รู้จัก TPN Audit & Consulting สำนักงานสอบบัญชีโดยทีมผู้สอบบัญชีรับอนุญาต ประสบการณ์จาก Big 4 กับแนวคิด Trusted Professional Network เครือข่ายมืออาชีพที่คุณวางใจได้',
     head: 'เกี่ยวกับเรา',
     sub: 'เครือข่ายมืออาชีพที่คุณวางใจได้',
+    regHead: 'ข้อมูลนิติบุคคล',
+    regNameLabel: 'ชื่อนิติบุคคล',
+    regAddressLabel: 'ที่ตั้งสำนักงาน',
     storyHead: 'เรื่องราวของเรา',
     story: [
       'TPN Audit & Consulting ก่อตั้งขึ้นโดยทีมผู้สอบบัญชีรับอนุญาต (CPA) ที่ผ่านประสบการณ์ตรวจสอบบัญชีจากบริษัทตรวจสอบใน Big 4 ด้วยความเชื่อว่าธุรกิจไทยทุกขนาด — ไม่ใช่เฉพาะบริษัทมหาชนขนาดใหญ่ — ควรเข้าถึงงานสอบบัญชีที่มีคุณภาพระดับสากล ในราคาที่สมเหตุสมผล',
@@ -251,9 +258,9 @@ const th = {
     infoHead: 'ช่องทางติดต่อ',
     callLabel: 'โทรหาเรา',
     lineLabel: 'เพิ่มเพื่อนทาง LINE',
-    lineSub: 'ช่องทางที่ตอบกลับเร็วที่สุด — แตะเพื่อเพิ่มเพื่อน หรือสแกน QR Code',
-    lineCta: 'แตะเพื่อเพิ่มเพื่อน',
-    lineQr: 'สแกนเพื่อเพิ่มเพื่อนใน LINE',
+    lineSub: 'ช่องทางที่ตอบกลับเร็วที่สุด',
+    lineCta: 'ใช้มือถือ — แตะเพื่อเปิดแอป LINE',
+    lineQr: 'ใช้คอมพิวเตอร์อยู่? สแกน QR นี้ด้วยแอป LINE บนมือถือของท่าน',
     emailLabel: 'อีเมล',
     addressLabel: 'ที่อยู่',
     hoursLabel: 'เวลาทำการ',
@@ -447,6 +454,9 @@ const en = {
       'Meet TPN Audit & Consulting, an audit firm led by licensed CPAs with Big 4 experience, built on the idea of a Trusted Professional Network.',
     head: 'About Us',
     sub: 'The professional network you can trust',
+    regHead: 'Registered Entity',
+    regNameLabel: 'Registered name',
+    regAddressLabel: 'Registered office',
     storyHead: 'Our Story',
     story: [
       'TPN Audit & Consulting was founded by a team of licensed CPAs with audit experience at Big 4 firms, built on one belief: every Thai business — not just large public companies — deserves access to international-quality audit work at a sensible price.',
@@ -487,9 +497,9 @@ const en = {
     infoHead: 'Get in touch',
     callLabel: 'Call us',
     lineLabel: 'Add us on LINE',
-    lineSub: 'The fastest way to reach us — tap to add, or scan the QR code',
-    lineCta: 'Tap to add as friend',
-    lineQr: 'Scan to add us on LINE',
+    lineSub: 'The fastest way to reach us',
+    lineCta: 'On mobile — tap to open the LINE app',
+    lineQr: 'On a computer? Scan this code with the LINE app on your phone',
     emailLabel: 'Email',
     addressLabel: 'Address',
     hoursLabel: 'Office hours',
