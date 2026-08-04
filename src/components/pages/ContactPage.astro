@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { site, t, type Lang } from '../../lib/i18n';
+import { site, t, withBase, type Lang } from '../../lib/i18n';
 
 interface Props {
   lang: Lang;
@@ -28,6 +28,10 @@ const inputClass =
     <div>
       <h2 class="font-display text-2xl font-semibold text-pine-950">{c.formHead}</h2>
       <form id="contact-form" class="mt-8 grid gap-6 sm:grid-cols-2">
+        <input type="hidden" name="_subject" value="[เว็บไซต์ TPN] ข้อความใหม่จากฟอร์มติดต่อ" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
         <label class="block text-sm font-medium text-pine-800">
           {c.name}
           <input type="text" name="name" required class={inputClass} />
@@ -55,6 +59,7 @@ const inputClass =
           >
             {c.submit}
           </button>
+          <p id="form-status" role="status" aria-live="polite" class="mt-4 hidden text-sm font-medium leading-relaxed"></p>
           <p class="mt-4 text-xs leading-relaxed text-pine-600">{c.formNote}</p>
         </div>
       </form>
@@ -62,23 +67,34 @@ const inputClass =
 
     <!-- Contact channels -->
     <div class="space-y-5">
-      <!-- LINE: add by phone number (no deep link) — copies number on click -->
-      <button
-        id="line-copy"
-        type="button"
-        class="block w-full cursor-pointer border border-[#06C755]/45 bg-pine-950 p-6 text-left transition-colors hover:border-[#06C755] hover:bg-pine-900"
-      >
-        <span class="flex items-center gap-4">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="#06C755" aria-hidden="true">
+      <!-- LINE: direct add-friend link, with QR for desktop visitors -->
+      <div class="border border-[#06C755]/45 bg-pine-950 p-6">
+        <a
+          href={site.lineUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-center gap-4 transition-opacity hover:opacity-90"
+        >
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="#06C755" aria-hidden="true" class="shrink-0">
             <path d="M12 2C6.477 2 2 5.66 2 10.18c0 4.05 3.575 7.44 8.405 8.08.327.07.773.217.886.498.101.256.066.657.032.916l-.143.86c-.044.256-.203 1.001.878.546 1.08-.455 5.83-3.435 7.954-5.88C21.58 13.53 22 11.93 22 10.18 22 5.66 17.523 2 12 2z" />
           </svg>
           <span>
-            <span class="block font-display text-lg font-semibold text-cream-50">{c.lineLabel} — {site.linePhoneDisplay}</span>
+            <span class="block font-display text-lg font-semibold text-cream-50">{c.lineLabel}</span>
             <span class="mt-1 block text-[13px] leading-relaxed text-cream-200/70">{c.lineSub}</span>
-            <span id="line-copy-hint" class="mt-2 block text-xs font-semibold tracking-wide text-[#06C755]">{c.lineCopy}</span>
+            <span class="mt-2 inline-block text-xs font-semibold tracking-wide text-[#06C755] group-hover:underline">{c.lineCta}</span>
           </span>
-        </span>
-      </button>
+        </a>
+        <div class="mt-5 flex items-center gap-4 border-t border-cream-200/10 pt-5">
+          <img
+            src={withBase('/line-qr.svg')}
+            alt={c.lineQr}
+            width="280"
+            height="280"
+            class="h-24 w-24 shrink-0 bg-white p-1"
+          />
+          <p class="text-xs leading-relaxed text-cream-200/60">{c.lineQr}</p>
+        </div>
+      </div>
 
       <a href={`tel:${site.phone}`} class="flex items-center gap-4 border border-pine-900/20 bg-cream-50 p-6 transition-colors hover:border-pine-900/50">
         <span class="flex h-11 w-11 shrink-0 items-center justify-center border border-pine-900/15 text-pine-800">
@@ -139,33 +155,49 @@ const inputClass =
   </section>
 </Base>
 
-<script define:vars={{ email: site.email, linePhone: site.linePhone, lineCopied: c.lineCopied, lineCopy: c.lineCopy }}>
-  document.getElementById('contact-form')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const f = new FormData(e.target);
-    const subject = `[เว็บไซต์] ติดต่อจาก ${f.get('name')}${f.get('company') ? ' — ' + f.get('company') : ''}`;
-    const body = [
-      `ชื่อ: ${f.get('name')}`,
-      `บริษัท: ${f.get('company') || '-'}`,
-      `เบอร์โทร: ${f.get('phone')}`,
-      `อีเมล: ${f.get('email') || '-'}`,
-      '',
-      `${f.get('message')}`,
-    ].join('\n');
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
+<script define:vars={{ email: site.email, sending: c.formSending, success: c.formSuccess, failed: c.formError }}>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const button = form?.querySelector('button[type="submit"]');
+  const buttonLabel = button?.textContent ?? '';
 
-  const lineBtn = document.getElementById('line-copy');
-  const lineHint = document.getElementById('line-copy-hint');
-  lineBtn?.addEventListener('click', async () => {
+  const show = (message, ok) => {
+    if (!status) return;
+    status.textContent = message;
+    status.classList.remove('hidden');
+    status.classList.toggle('text-pine-900', ok !== false);
+    status.classList.toggle('text-red-700', ok === false);
+  };
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    // FormSubmit uses this to set the reply-to address on the email it forwards
+    if (data.get('email')) data.append('_replyto', data.get('email'));
+
+    show(sending, true);
+    if (button) {
+      button.disabled = true;
+      button.textContent = sending;
+    }
+
     try {
-      await navigator.clipboard.writeText(linePhone);
-      if (lineHint) lineHint.textContent = lineCopied;
-      setTimeout(() => {
-        if (lineHint) lineHint.textContent = lineCopy;
-      }, 4000);
+      const response = await fetch(`https://formsubmit.co/ajax/${email}`, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || String(result.success) !== 'true') throw new Error('send failed');
+      show(success, true);
+      form.reset();
     } catch {
-      window.location.href = `tel:${linePhone}`;
+      show(failed, false);
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.textContent = buttonLabel;
+      }
     }
   });
 </script>

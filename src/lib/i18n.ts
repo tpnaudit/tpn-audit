@@ -5,31 +5,24 @@
 
 export type Lang = 'th' | 'en';
 
+const addressTh = '46/933 ถนนอโศก-ดินแดง แขวงบางกะปิ เขตห้วยขวาง กรุงเทพมหานคร 10310';
+
 export const site = {
   nameTh: 'ทีพีเอ็น ออดิท แอนด์ คอนซัลติ้ง',
+  legalNameTh: 'บริษัท ทีพีเอ็น ออดิท แอนด์ คอนซัลติ้ง จำกัด',
   nameEn: 'TPN Audit & Consulting Co., Ltd.',
   tagline: 'Trusted Professional Network',
   phone: '0843756668',
   phoneDisplay: '084-375-6668',
-  // LINE: เพิ่มเพื่อนด้วย "เบอร์โทร" (ไม่ใช่ LINE ID) — จึงไม่มีลิงก์ deep link ใช้วิธีคัดลอกเบอร์แทน
-  linePhone: '0843756668',
-  linePhoneDisplay: '084-375-6668',
+  lineUrl: 'https://line.me/ti/p/CSjPMLrl9D',
   email: 'thanapoom.tpnaudit@gmail.com',
-  // TODO: แก้ที่อยู่จริงของบริษัท
-  addressTh: 'กรุงเทพมหานคร ประเทศไทย',
-  addressEn: 'Bangkok, Thailand',
+  addressTh,
+  addressEn: '46/933 Asok-Din Daeng Road, Bang Kapi, Huai Khwang, Bangkok 10310',
   // TODO: แก้เวลาทำการจริง
   hoursTh: 'จันทร์–ศุกร์ 9:00–18:00 น.',
   hoursEn: 'Mon–Fri 9:00–18:00',
-  // TODO: ใส่ลิงก์ Google Maps embed จริง (Share > Embed a map > copy src)
-  mapEmbed:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d496013.9895867449!2d100.34635536718752!3d13.724893800000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ecde4c04b2f%3A0xc4b2b264a75a8b4a!2sBangkok!5e0!3m2!1sen!2sth!4v1700000000000',
+  mapEmbed: `https://www.google.com/maps?q=${encodeURIComponent(addressTh)}&output=embed`,
   url: 'https://tpnaudit.github.io/tpn-audit',
-  // สถิติหน้าแรก — แก้ตัวเลขได้ที่นี่
-  stats: {
-    years: '10+',
-    clients: '100+',
-  },
 } as const;
 
 const th = {
@@ -47,7 +40,7 @@ const th = {
     contactHead: 'ติดต่อเรา',
     linksHead: 'เมนู',
     rights: 'สงวนลิขสิทธิ์',
-    lineNote: 'เพิ่มเพื่อนด้วยเบอร์',
+    lineNote: 'เพิ่มเพื่อนทาง LINE',
   },
   home: {
     metaTitle: 'TPN Audit & Consulting — สำนักงานสอบบัญชี โดยผู้สอบบัญชีรับอนุญาต (CPA)',
@@ -98,8 +91,8 @@ const th = {
       'รับตรวจสอบบัญชี งบการเงิน TFRS for NPAEs ตรวจสอบกิจการ BOI ที่ปรึกษาภาษี วางระบบบัญชีและที่ปรึกษาทางการเงิน โดยผู้สอบบัญชีรับอนุญาต ค่าบริการโปร่งใส สมเหตุสมผล',
     head: 'บริการของเรา',
     sub: 'บริการด้านบัญชี ภาษี และการเงินครบวงจร โดยทีมผู้สอบบัญชีรับอนุญาต',
-    priceNote: 'โครงสร้างค่าบริการโปร่งใส ประเมินตามขนาดและความซับซ้อนของกิจการ — ขอใบเสนอราคาได้ฟรี ไม่มีข้อผูกมัด',
-    priceLabel: 'ประเมินราคาตามขอบเขตงาน',
+    priceNote:
+      'บริการมาตรฐานมีอัตราค่าบริการคงที่ ส่วนงานตรวจสอบบัญชีประเมินตามขนาดและความซับซ้อนของกิจการ — ขอใบเสนอราคาได้ฟรี ไม่มีข้อผูกมัด',
     faqHead: 'คำถามที่พบบ่อย',
     faqSub: 'รวมคำตอบสำหรับคำถามที่ผู้ประกอบการถามเราบ่อยที่สุด',
     list: [
@@ -107,6 +100,7 @@ const th = {
         id: 'audit',
         title: 'ตรวจสอบบัญชีและงบการเงิน',
         short: 'ตรวจสอบงบการเงินประจำปีตามมาตรฐาน TFRS for NPAEs พร้อมรายงานผู้สอบบัญชีรับอนุญาต',
+        price: 'ประเมินราคาตามขอบเขตงาน',
         body: [
           'บริการตรวจสอบงบการเงินประจำปีสำหรับบริษัทจำกัด ห้างหุ้นส่วนจดทะเบียน และนิติบุคคลทุกประเภท ตามมาตรฐานการรายงานทางการเงินสำหรับกิจการที่ไม่มีส่วนได้เสียสาธารณะ (TFRS for NPAEs) และมาตรฐานการสอบบัญชีที่รับรองทั่วไป งานทุกชิ้นตรวจสอบและลงลายมือชื่อรับรองโดยผู้สอบบัญชีรับอนุญาต (CPA) โดยตรง',
           'ขอบเขตงานครอบคลุมการวางแผนการตรวจสอบ การประเมินความเสี่ยง การตรวจสอบเอกสารประกอบรายการบัญชี การยืนยันยอดลูกหนี้-เจ้าหนี้-เงินฝากธนาคาร การสังเกตการณ์ตรวจนับสินค้าคงเหลือ ไปจนถึงการจัดทำรายงานของผู้สอบบัญชีและงบการเงินฉบับยื่นกรมพัฒนาธุรกิจการค้าและกรมสรรพากร',
@@ -117,6 +111,7 @@ const th = {
         id: 'boi',
         title: 'ตรวจสอบกิจการ BOI',
         short: 'ตรวจสอบและรับรองรายงานสำหรับกิจการที่ได้รับการส่งเสริมการลงทุนจาก BOI',
+        price: 'ประเมินราคาตามขอบเขตงาน',
         body: [
           'กิจการที่ได้รับการส่งเสริมการลงทุนจากคณะกรรมการส่งเสริมการลงทุน (BOI) มีหน้าที่ยื่นรายงานที่ผ่านการตรวจสอบและรับรองจากผู้สอบบัญชีรับอนุญาต เพื่อใช้สิทธิประโยชน์ยกเว้นภาษีเงินได้นิติบุคคลในแต่ละรอบบัญชี ทีมงานของเรามีประสบการณ์ตรวจสอบกิจการ BOI หลากหลายประเภทกิจการ ทั้งภาคการผลิต บริการ และซอฟต์แวร์',
           'บริการครอบคลุมการตรวจสอบแบบคำขอใช้สิทธิและประโยชน์ยกเว้นภาษีเงินได้นิติบุคคล การตรวจสอบการแยกบัญชีระหว่างกิจการที่ได้รับส่งเสริมและไม่ได้รับส่งเสริม การตรวจสอบเงื่อนไขตามบัตรส่งเสริม เช่น ขนาดการลงทุน กำลังการผลิต และรายได้จากโครงการ พร้อมให้คำแนะนำการจัดทำบัญชีแยกโครงการอย่างถูกต้องตั้งแต่ต้นปี',
@@ -124,9 +119,43 @@ const th = {
         ],
       },
       {
+        id: 'bookkeeping',
+        title: 'รับทำบัญชีรายเดือน',
+        short: 'ดูแลบัญชีและยื่นภาษีให้ครบทุกเดือน โดยนักบัญชีผู้รับผิดชอบประจำที่ติดต่อได้โดยตรง',
+        price: 'เริ่มต้น 3,000 บาท/เดือน',
+        body: [
+          'บริการจัดทำบัญชีรายเดือนสำหรับนิติบุคคลที่ต้องการให้งานบัญชีและภาษีอยู่ในความดูแลของผู้ประกอบวิชาชีพตลอดทั้งปี เราบันทึกรายการบัญชีตามมาตรฐานการรายงานทางการเงิน จัดทำงบทดลองและรายงานทางการเงินประจำเดือน พร้อมตรวจสอบความครบถ้วนถูกต้องของเอกสารประกอบรายการก่อนบันทึกทุกครั้ง',
+          'ขอบเขตงานครอบคลุมการยื่นแบบภาษีตามกำหนดเวลาครบทุกประเภท ทั้งภาษีเงินได้หัก ณ ที่จ่าย (ภ.ง.ด.1, ภ.ง.ด.3, ภ.ง.ด.53) ภาษีมูลค่าเพิ่ม (ภ.พ.30) แบบนำส่งเงินสมทบประกันสังคม ตลอดจนภาษีเงินได้นิติบุคคลครึ่งปี (ภ.ง.ด.51) โดยเราติดตามกำหนดนำส่งให้ทั้งหมด ท่านจึงไม่ต้องกังวลเรื่องเบี้ยปรับและเงินเพิ่มจากการยื่นล่าช้า',
+          'ลูกค้าทุกรายมีนักบัญชีผู้รับผิดชอบประจำที่ติดต่อสอบถามได้โดยตรง พร้อมสรุปภาพรวมผลประกอบการให้ทราบอย่างสม่ำเสมอ และเมื่อถึงรอบปิดบัญชีประจำปี ข้อมูลที่จัดเก็บอย่างเป็นระบบตลอดปีจะทำให้การปิดงบและการตรวจสอบเป็นไปอย่างราบรื่นและรวดเร็วยิ่งขึ้น',
+        ],
+      },
+      {
+        id: 'dormant',
+        title: 'ปิดงบการเงิน (บริษัทไม่ได้ดำเนินกิจการ)',
+        short: 'จัดทำ ตรวจสอบ และนำส่งงบการเงินประจำปีสำหรับบริษัทที่หยุดดำเนินกิจการ ราคาเดียวจบ',
+        price: '7,500 บาท (รวมค่าสอบบัญชีแล้ว)',
+        body: [
+          'บริษัทที่จดทะเบียนไว้แต่ยังไม่ได้เริ่มดำเนินกิจการ หรือหยุดดำเนินกิจการชั่วคราว ยังคงมีหน้าที่ตามกฎหมายในการจัดทำบัญชี ปิดงบการเงินประจำปี ให้ผู้สอบบัญชีรับอนุญาตตรวจสอบ และนำส่งต่อกรมพัฒนาธุรกิจการค้าและกรมสรรพากรตามกำหนดเวลา แม้จะไม่มีรายได้เกิดขึ้นในรอบบัญชีนั้นก็ตาม',
+          'บริการนี้ครอบคลุมตั้งแต่การจัดทำงบการเงินและหมายเหตุประกอบงบการเงิน การตรวจสอบและลงลายมือชื่อรับรองโดยผู้สอบบัญชีรับอนุญาต การจัดเตรียมเอกสารประกอบการประชุมสามัญผู้ถือหุ้น ไปจนถึงการนำส่งงบการเงินต่อกรมพัฒนาธุรกิจการค้าและการยื่นแบบ ภ.ง.ด.50 ในอัตราค่าบริการเดียวจบ ไม่มีค่าใช้จ่ายเพิ่มเติมภายหลัง',
+          'การนำส่งงบการเงินอย่างต่อเนื่องทุกปีช่วยรักษาสถานะทางกฎหมายของบริษัทให้ถูกต้อง ไม่เกิดค่าปรับสะสมทั้งต่อบริษัทและกรรมการ และทำให้กิจการพร้อมกลับมาดำเนินธุรกิจ หรือดำเนินการเลิกบริษัทอย่างถูกต้องได้ทันทีเมื่อต้องการ',
+        ],
+      },
+      {
+        id: 'registration',
+        title: 'จดทะเบียนบริษัท',
+        short: 'ดำเนินการจดทะเบียนจัดตั้งบริษัทครบวงจร ตั้งแต่จองชื่อจนได้เลขทะเบียนนิติบุคคล',
+        price: '8,900 บาท (รวมค่าธรรมเนียมแล้ว)',
+        body: [
+          'บริการจดทะเบียนจัดตั้งบริษัทจำกัดแบบครบวงจร ดำเนินการให้ตั้งแต่การตรวจสอบและจองชื่อนิติบุคคล การจัดทำหนังสือบริคณห์สนธิ การกำหนดวัตถุประสงค์ของกิจการ โครงสร้างผู้ถือหุ้นและทุนจดทะเบียน จนถึงการยื่นคำขอจดทะเบียนต่อกรมพัฒนาธุรกิจการค้าจนได้รับเลขทะเบียนนิติบุคคล',
+          'อัตราค่าบริการรวมค่าธรรมเนียมราชการเรียบร้อยแล้ว ครอบคลุมเอกสารจัดตั้งครบชุด หนังสือรับรองบริษัท ตราประทับบริษัท และคำแนะนำในการเปิดบัญชีธนาคารในนามนิติบุคคล พร้อมให้คำปรึกษาเรื่องการขึ้นทะเบียนภาษีมูลค่าเพิ่มและการขึ้นทะเบียนนายจ้างกับสำนักงานประกันสังคมเมื่อกิจการเข้าเงื่อนไข',
+          'หากท่านยังไม่แน่ใจว่าควรจดทะเบียนเป็นบริษัทหรือไม่ เรายินดีให้คำปรึกษาเบื้องต้นโดยไม่มีค่าใช้จ่าย ทั้งในมุมภาระภาษีเมื่อเทียบกับการประกอบธุรกิจในนามบุคคลธรรมดา ต้นทุนการดูแลบัญชีรายปี และความเหมาะสมกับขนาดรายได้ของกิจการ เพื่อให้ท่านตัดสินใจได้บนข้อมูลที่ครบถ้วน',
+        ],
+      },
+      {
         id: 'tax',
         title: 'บริการที่ปรึกษาภาษี',
         short: 'วางแผนภาษี ตรวจสุขภาพภาษี และดูแลประเด็นภาษีอากรครบทุกประเภท',
+        price: 'ประเมินราคาตามขอบเขตงาน',
         body: [
           'ภาษีเป็นต้นทุนก้อนใหญ่ที่บริหารจัดการได้ หากวางแผนอย่างถูกต้องตั้งแต่ต้น บริการที่ปรึกษาภาษีของเราครอบคลุมภาษีเงินได้นิติบุคคล ภาษีมูลค่าเพิ่ม ภาษีเงินได้หัก ณ ที่จ่าย ภาษีธุรกิจเฉพาะ และอากรแสตมป์ โดยทีมงานที่เข้าใจทั้งมุมกฎหมายภาษีและมุมปฏิบัติจริงของธุรกิจ',
           'เราให้บริการตรวจสุขภาพภาษี (Tax Health Check) เพื่อค้นหาความเสี่ยงก่อนที่กรมสรรพากรจะพบ วางแผนภาษีสำหรับธุรกรรมสำคัญ เช่น การจ่ายเงินปันผล การปรับโครงสร้างกิจการ การทำสัญญากับคู่ค้าต่างประเทศ รวมถึงตอบข้อหารือประเด็นภาษีที่ซับซ้อนพร้อมอ้างอิงข้อกฎหมายและแนววินิจฉัยที่เกี่ยวข้อง',
@@ -137,6 +166,7 @@ const th = {
         id: 'advisory',
         title: 'วางระบบบัญชีและที่ปรึกษาทางการเงิน',
         short: 'ออกแบบระบบบัญชี ผังบัญชี และรายงานทางการเงินที่ใช้ตัดสินใจได้จริง',
+        price: 'ประเมินราคาตามขอบเขตงาน',
         body: [
           'ระบบบัญชีที่ดีไม่ใช่แค่บันทึกให้ครบ แต่ต้องให้ข้อมูลที่ผู้บริหารใช้ตัดสินใจได้ทันเวลา เราให้บริการวางระบบบัญชีตั้งแต่การออกแบบผังบัญชี กำหนดขั้นตอนการทำงานของเอกสาร (Document Flow) การควบคุมภายในที่จำเป็น ไปจนถึงการเลือกและติดตั้งโปรแกรมบัญชีที่เหมาะกับขนาดธุรกิจ',
           'สำหรับกิจการที่เติบโตเร็ว เราช่วยยกระดับจากการทำบัญชีเพื่อยื่นภาษี ไปสู่การมีรายงานผลประกอบการรายเดือน งบกระแสเงินสด และตัวชี้วัดทางการเงินที่สำคัญ เพื่อให้เจ้าของกิจการเห็นภาพธุรกิจของตัวเองชัดเจนขึ้น วางแผนกำไรและสภาพคล่องได้ล่วงหน้า',
@@ -214,13 +244,16 @@ const th = {
     email: 'อีเมล',
     message: 'รายละเอียดที่ต้องการปรึกษา',
     submit: 'ส่งข้อความ',
-    formNote: 'ปุ่มส่งข้อความจะเปิดโปรแกรมอีเมลพร้อมข้อความที่กรอกไว้ หรือติดต่อทางไลน์/โทรศัพท์ได้เลย',
+    formNote: 'ข้อมูลของท่านจะถูกส่งถึงเราโดยตรง และใช้เพื่อการติดต่อกลับเท่านั้น หรือหากต้องการคำตอบทันที ติดต่อทางไลน์หรือโทรศัพท์ได้เลย',
+    formSending: 'กำลังส่ง...',
+    formSuccess: 'ส่งข้อความเรียบร้อยแล้ว ขอบคุณที่ติดต่อเรา — ทีมงานจะติดต่อกลับโดยเร็วที่สุด',
+    formError: 'ขออภัย ส่งข้อความไม่สำเร็จ กรุณาลองใหม่อีกครั้ง หรือติดต่อเราทางไลน์หรือโทรศัพท์',
     infoHead: 'ช่องทางติดต่อ',
     callLabel: 'โทรหาเรา',
-    lineLabel: 'Add LINE',
-    lineSub: 'เพิ่มเพื่อนใน LINE ด้วยเบอร์โทร — ตอบเร็วที่สุดทางนี้',
-    lineCopy: 'แตะเพื่อคัดลอกเบอร์',
-    lineCopied: 'คัดลอกเบอร์แล้ว — เปิด LINE แล้วเพิ่มเพื่อนด้วยเบอร์นี้ได้เลย',
+    lineLabel: 'เพิ่มเพื่อนทาง LINE',
+    lineSub: 'ช่องทางที่ตอบกลับเร็วที่สุด — แตะเพื่อเพิ่มเพื่อน หรือสแกน QR Code',
+    lineCta: 'แตะเพื่อเพิ่มเพื่อน',
+    lineQr: 'สแกนเพื่อเพิ่มเพื่อนใน LINE',
     emailLabel: 'อีเมล',
     addressLabel: 'ที่อยู่',
     hoursLabel: 'เวลาทำการ',
@@ -243,7 +276,7 @@ const en = {
     contactHead: 'Contact',
     linksHead: 'Menu',
     rights: 'All rights reserved.',
-    lineNote: 'add by phone number',
+    lineNote: 'Add us on LINE',
   },
   home: {
     metaTitle: 'TPN Audit & Consulting — Audit Firm Led by Licensed CPAs in Bangkok',
@@ -294,8 +327,8 @@ const en = {
       'Statutory audits under TFRS for NPAEs, BOI audits, tax advisory, accounting system design, and financial advisory by licensed CPAs. Transparent, reasonable fees.',
     head: 'Our Services',
     sub: 'Full-scope accounting, tax, and finance services from a licensed CPA team',
-    priceNote: 'Transparent fee structure, assessed by business size and complexity. Free, no-obligation quotations.',
-    priceLabel: 'Quoted by scope of work',
+    priceNote:
+      'Standard services carry a fixed fee; audit engagements are quoted by business size and complexity. Free, no-obligation quotations.',
     faqHead: 'Frequently Asked Questions',
     faqSub: 'Answers to the questions business owners ask us most often',
     list: [
@@ -303,6 +336,7 @@ const en = {
         id: 'audit',
         title: 'Financial Statement Audit',
         short: 'Annual statutory audits under TFRS for NPAEs, signed by licensed CPAs.',
+        price: 'Quoted by scope of work',
         body: [
           'We provide annual statutory audits for limited companies, registered partnerships, and other juristic persons in accordance with Thai Financial Reporting Standards for Non-Publicly Accountable Entities (TFRS for NPAEs) and generally accepted auditing standards. Every engagement is performed and signed by a licensed CPA.',
           'Our scope covers audit planning, risk assessment, substantive testing of transactions, confirmations of receivables, payables, and bank balances, inventory count observation, and preparation of the auditor’s report and financial statements for filing with the Department of Business Development and the Revenue Department.',
@@ -313,6 +347,7 @@ const en = {
         id: 'boi',
         title: 'BOI Audit',
         short: 'Audit and certification for businesses promoted by the Board of Investment.',
+        price: 'Quoted by scope of work',
         body: [
           'Companies promoted by Thailand’s Board of Investment (BOI) must file CPA-certified reports to claim corporate income tax exemptions each accounting period. Our team has audited BOI-promoted businesses across manufacturing, services, and software.',
           'Services include certification of applications for corporate income tax exemption, verification of the separation of accounts between promoted and non-promoted activities, and testing of promotion certificate conditions such as investment size, production capacity, and project revenue — with guidance on proper project-based bookkeeping from the start of the year.',
@@ -320,9 +355,43 @@ const en = {
         ],
       },
       {
+        id: 'bookkeeping',
+        title: 'Monthly Bookkeeping',
+        short: 'Monthly books and every tax filing handled, with a dedicated accountant you can reach directly.',
+        price: 'From THB 3,000 / month',
+        body: [
+          'Monthly bookkeeping for juristic persons that want their accounting and tax obligations in professional hands all year round. We record transactions in accordance with Thai financial reporting standards, prepare monthly trial balances and management reports, and verify the completeness of supporting documents before anything is posted.',
+          'The engagement covers every periodic tax filing on schedule: withholding tax returns (PND.1, PND.3, PND.53), VAT returns (PP.30), social security contributions, and the half-year corporate income tax return (PND.51). We track all filing deadlines on your behalf, so late-filing surcharges and penalties never become your problem.',
+          'Every client is assigned a responsible accountant available for direct questions, with regular summaries of business performance. When the annual close comes around, records kept in order throughout the year make preparing and auditing the financial statements substantially faster and smoother.',
+        ],
+      },
+      {
+        id: 'dormant',
+        title: 'Dormant Company Annual Filing',
+        short: 'Preparation, audit, and filing of annual financial statements for dormant companies at one flat fee.',
+        price: 'THB 7,500 (audit fee included)',
+        body: [
+          'A company that is registered but has not yet begun trading, or has temporarily ceased operations, still carries the legal obligation to maintain accounts, prepare annual financial statements, have them audited by a licensed CPA, and file them with the Department of Business Development and the Revenue Department on time — even with no revenue in the period.',
+          'This service covers preparation of the financial statements and notes, audit and sign-off by a licensed CPA, preparation of the documents for the annual general meeting, filing of the financial statements with the Department of Business Development, and submission of the PND.50 return — all at a single flat fee with no charges added later.',
+          'Filing consistently every year keeps the company in good legal standing, prevents penalties accumulating against both the company and its directors, and leaves the business ready to resume trading or to be wound up properly whenever you decide.',
+        ],
+      },
+      {
+        id: 'registration',
+        title: 'Company Registration',
+        short: 'End-to-end incorporation, from name reservation through to your juristic person registration number.',
+        price: 'THB 8,900 (government fees included)',
+        body: [
+          'End-to-end registration of a Thai limited company: name availability check and reservation, preparation of the memorandum of association, definition of business objectives, shareholder structure and registered capital, and filing the registration application with the Department of Business Development through to issue of the registration number.',
+          'The fee includes all government charges, a complete set of incorporation documents, the company affidavit, the company seal, and guidance on opening a corporate bank account — together with advice on VAT registration and employer registration with the Social Security Office once your business meets the thresholds.',
+          'If you are not yet certain whether incorporating is the right move, we are glad to advise at no charge: the tax position compared with trading as an individual, the annual cost of maintaining company accounts, and whether incorporation suits your current revenue. You decide with the full picture in front of you.',
+        ],
+      },
+      {
         id: 'tax',
         title: 'Tax Advisory',
         short: 'Tax planning, health checks, and support across every Thai tax type.',
+        price: 'Quoted by scope of work',
         body: [
           'Tax is one of your largest costs — and one of the most manageable with proper planning. Our advisory covers corporate income tax, VAT, withholding tax, specific business tax, and stamp duty, delivered by a team fluent in both tax law and business practicality.',
           'We perform tax health checks to surface risks before the Revenue Department does, plan for significant transactions such as dividend payments, restructurings, and cross-border contracts, and provide written opinions on complex tax questions with full legal references.',
@@ -333,6 +402,7 @@ const en = {
         id: 'advisory',
         title: 'Accounting Systems & Financial Advisory',
         short: 'Chart of accounts, workflows, and management reporting you can actually use.',
+        price: 'Quoted by scope of work',
         body: [
           'A good accounting system does more than record transactions — it gives management timely information for decisions. We design accounting systems end to end: chart of accounts, document workflows, essential internal controls, and selection and implementation of accounting software suited to your size.',
           'For fast-growing businesses, we help you evolve from tax-filing bookkeeping to monthly management reports, cash flow statements, and key financial indicators — so owners see their business clearly and plan profit and liquidity ahead of time.',
@@ -410,13 +480,16 @@ const en = {
     email: 'Email',
     message: 'How can we help?',
     submit: 'Send Message',
-    formNote: 'The send button opens your email client with the message pre-filled — or reach us instantly via LINE or phone.',
+    formNote: 'Your details are sent directly to us and used only to respond to your enquiry. For an immediate reply, reach us on LINE or by phone.',
+    formSending: 'Sending...',
+    formSuccess: 'Your message has been sent — thank you. We will be in touch shortly.',
+    formError: 'Sorry, your message could not be sent. Please try again, or reach us on LINE or by phone.',
     infoHead: 'Get in touch',
     callLabel: 'Call us',
-    lineLabel: 'Add LINE',
-    lineSub: 'Add us on LINE by phone number — the fastest way to reach us',
-    lineCopy: 'Tap to copy the number',
-    lineCopied: 'Copied — open LINE and add friend by this phone number',
+    lineLabel: 'Add us on LINE',
+    lineSub: 'The fastest way to reach us — tap to add, or scan the QR code',
+    lineCta: 'Tap to add as friend',
+    lineQr: 'Scan to add us on LINE',
     emailLabel: 'Email',
     addressLabel: 'Address',
     hoursLabel: 'Office hours',
