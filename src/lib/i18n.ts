@@ -7,9 +7,9 @@ export type Lang = 'th' | 'en';
 
 const addressTh = '46/933 ถนนอโศก-ดินแดง แขวงบางกะปิ เขตห้วยขวาง กรุงเทพมหานคร 10310';
 
-// Google Maps หาเลขที่ 46/933 ไม่เจอ (ตัดเหลือ "46" แล้วไปปักที่เขตดินแดงซึ่งผิดเขต)
-// จึงชี้ระดับแขวงไว้ก่อน — TODO: แทนด้วยลิงก์ปักหมุดจริงจาก Google Maps > แชร์ > ฝังแผนที่
-const mapQuery = 'แขวงบางกะปิ เขตห้วยขวาง กรุงเทพมหานคร 10310';
+// พิกัดที่ตั้งสำนักงานจริง (จากลิงก์ Google Maps ที่ยืนยันแล้ว)
+// ใช้พิกัดตรงๆ เพราะ Google หาเลขที่ 46/933 ไม่เจอ (ตัดเหลือ "46" แล้วไปปักผิดเขต)
+const geo = { lat: 13.7505375, lng: 100.5647107 } as const;
 
 export const site = {
   nameTh: 'ทีพีเอ็น ออดิท แอนด์ คอนซัลติ้ง',
@@ -25,7 +25,9 @@ export const site = {
   // TODO: แก้เวลาทำการจริง
   hoursTh: 'จันทร์–ศุกร์ 9:00–18:00 น.',
   hoursEn: 'Mon–Fri 9:00–18:00',
-  mapEmbed: `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=15&output=embed`,
+  geo,
+  mapEmbed: `https://www.google.com/maps?q=${geo.lat},${geo.lng}&z=17&output=embed`,
+  mapLink: `https://www.google.com/maps/search/?api=1&query=${geo.lat},${geo.lng}`,
   url: 'https://tpnaudit.github.io/tpn-audit',
 } as const;
 
@@ -265,6 +267,7 @@ const th = {
     addressLabel: 'ที่อยู่',
     hoursLabel: 'เวลาทำการ',
     mapHead: 'แผนที่',
+    mapCta: 'เปิดใน Google Maps',
   },
 } as const;
 
@@ -504,6 +507,7 @@ const en = {
     addressLabel: 'Address',
     hoursLabel: 'Office hours',
     mapHead: 'Map',
+    mapCta: 'Open in Google Maps',
   },
 } as const;
 

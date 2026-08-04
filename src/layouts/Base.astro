@@ -35,6 +35,12 @@ const orgSchema = {
     postalCode: '10310',
     addressCountry: 'TH',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.geo.lat,
+    longitude: site.geo.lng,
+  },
+  hasMap: site.mapLink,
   areaServed: 'TH',
   openingHours: 'Mo-Fr 09:00-18:00',
   knowsAbout: ['Financial statement audit', 'TFRS for NPAEs', 'BOI audit', 'Tax advisory', 'Accounting systems'],
