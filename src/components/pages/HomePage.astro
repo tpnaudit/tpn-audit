@@ -12,48 +12,46 @@ const prefix = lang === 'en' ? '/en' : '';
 ---
 
 <Base lang={lang} title={h.metaTitle} description={h.metaDesc} page="">
-  <!-- Hero: full-bleed deep green -->
-  <section class="bg-pine-950 text-cream-100">
-    <div class="mx-auto max-w-6xl px-4 pb-0 pt-20 sm:px-6 md:pt-28">
-      <div class="rise flex items-center gap-4">
-        <span class="h-px w-10 bg-gold-500" aria-hidden="true"></span>
-        <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-gold-400">{h.heroKicker}</p>
-      </div>
-      <h1 class="rise rise-1 mt-7 max-w-4xl whitespace-pre-line font-display text-[1.85rem] font-semibold leading-[1.4] text-cream-50 [text-wrap:balance] md:text-[2.6rem] md:leading-[1.34]">
+  <!-- Hero: ivory paper, large serif headline -->
+  <section>
+    <div class="mx-auto max-w-6xl px-4 pb-16 pt-16 sm:px-6 md:pb-24 md:pt-24">
+      <p class="rise inline-flex items-center gap-2 rounded-full border border-pine-900/10 bg-cream-50 px-3.5 py-1.5 text-xs font-medium tracking-wide text-pine-700">
+        <span class="h-1.5 w-1.5 rounded-full bg-gold-500" aria-hidden="true"></span>
+        {h.heroKicker}
+      </p>
+      <h1 class="rise rise-1 mt-8 max-w-4xl whitespace-pre-line font-display text-[2rem] font-normal leading-[1.35] text-pine-950 [text-wrap:balance] md:text-[3.1rem] md:leading-[1.25]">
         {h.heroTitle}
       </h1>
-      <p class="rise rise-2 mt-7 max-w-2xl text-base leading-relaxed text-cream-200/75 md:text-lg">{h.heroSub}</p>
-      <div class="rise rise-3 mt-10 flex flex-wrap items-center gap-4 pb-16 md:pb-20">
+      <p class="rise rise-2 mt-7 max-w-2xl text-base leading-relaxed text-pine-600 md:text-lg">{h.heroSub}</p>
+      <div class="rise rise-3 mt-10 flex flex-wrap items-center gap-3">
         <a
           href={withBase(`${prefix}/contact/`)}
-          class="rounded-md bg-gold-500 px-7 py-3.5 text-sm font-bold tracking-wide text-pine-950 transition-colors hover:bg-gold-400"
+          class="rounded-lg bg-pine-950 px-6 py-3.5 text-sm font-semibold text-cream-100 transition-colors hover:bg-pine-800"
         >
           {h.heroCta}
         </a>
         <a
           href={withBase(`${prefix}/services/`)}
-          class="rounded-md border border-cream-200/40 px-7 py-3.5 text-sm font-semibold tracking-wide text-cream-100 transition-colors hover:border-cream-100 hover:bg-cream-100/5"
+          class="rounded-lg border border-pine-900/15 bg-white/60 px-6 py-3.5 text-sm font-semibold text-pine-950 transition-colors hover:border-pine-900/30 hover:bg-white"
         >
           {h.heroCta2}
         </a>
       </div>
-    </div>
 
-    <!-- Trust indicators inside hero -->
-    <div class="border-t border-cream-200/15">
-      <div class="mx-auto grid max-w-6xl grid-cols-2 md:grid-cols-4">
+      <!-- Trust indicators -->
+      <div class="mt-16 grid grid-cols-2 gap-3 md:mt-20 md:grid-cols-4">
         {
-          h.trust.map((s, i) => (
-            <div class:list={['flex flex-col px-5 py-8 md:py-10', i > 0 && 'md:border-l md:border-cream-200/15']}>
+          h.trust.map((s) => (
+            <div class="flex flex-col rounded-2xl border border-pine-900/10 bg-cream-50 px-5 py-6">
               <div
                 class:list={[
-                  'flex flex-1 items-end font-display font-semibold text-gold-400',
-                  s.value.length > 6 ? 'text-xl leading-snug [text-wrap:balance] md:text-[1.55rem]' : 'text-3xl md:text-4xl',
+                  'flex flex-1 items-end font-display text-pine-950',
+                  s.value.length > 6 ? 'text-xl leading-snug [text-wrap:balance] md:text-[1.45rem]' : 'text-3xl md:text-4xl',
                 ]}
               >
                 {s.value}
               </div>
-              <div class="mt-2 text-xs tracking-wide text-cream-200/70 md:text-[13px]">{s.label}</div>
+              <div class="mt-2 text-xs text-pine-600 md:text-[13px]">{s.label}</div>
             </div>
           ))
         }
@@ -61,45 +59,47 @@ const prefix = lang === 'en' ? '/en' : '';
     </div>
   </section>
 
-  <!-- Services overview: editorial list -->
-  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
-    <div class="flex items-baseline justify-between gap-6">
-      <div>
-        <span class="block h-px w-10 bg-gold-500" aria-hidden="true"></span>
-        <h2 class="mt-5 font-display text-3xl font-semibold text-pine-950 md:text-4xl">{h.servicesHead}</h2>
-        <p class="mt-3 max-w-xl text-pine-700">{h.servicesSub}</p>
+  <!-- Services overview: card grid -->
+  <section class="border-t border-pine-900/10 bg-cream-50">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+      <h2 class="font-display text-3xl text-pine-950 md:text-[2.5rem]">{h.servicesHead}</h2>
+      <p class="mt-3 max-w-xl text-pine-600">{h.servicesSub}</p>
+      <div class="mt-12 grid gap-4 md:grid-cols-2">
+        {
+          d.services.list.map((s) => (
+            <a
+              href={withBase(`${prefix}/services/#${s.id}`)}
+              class="group flex flex-col rounded-2xl border border-pine-900/10 bg-cream-100 p-7 transition-all hover:-translate-y-0.5 hover:border-pine-900/20 hover:shadow-[0_8px_30px_-12px_rgba(20,20,19,0.18)] md:p-8"
+            >
+              <h3 class="font-display text-xl text-pine-950 md:text-[22px]">{s.title}</h3>
+              <p class="mt-3 max-w-md flex-1 text-sm leading-relaxed text-pine-600">{s.short}</p>
+              <span class="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-pine-950">
+                {h.servicesMore}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-gold-600 transition-transform group-hover:translate-x-1">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </span>
+            </a>
+          ))
+        }
       </div>
-    </div>
-    <div class="mt-14 grid gap-x-14 gap-y-12 md:grid-cols-2">
-      {
-        d.services.list.map((s, i) => (
-          <a href={withBase(`${prefix}/services/#${s.id}`)} class="group border-t-2 border-pine-900/20 pt-6 transition-colors hover:border-gold-500">
-            <h3 class="font-display text-xl font-semibold text-pine-950 md:text-[22px]">{s.title}</h3>
-            <p class="mt-3 max-w-md text-sm leading-relaxed text-pine-700">{s.short}</p>
-            <span class="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide text-pine-900">
-              {h.servicesMore}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-gold-600 transition-transform group-hover:translate-x-1.5">
-                <path d="M5 12h14m-6-6 6 6-6 6" />
-              </svg>
-            </span>
-          </a>
-        ))
-      }
     </div>
   </section>
 
   <!-- Why TPN -->
-  <section class="border-y border-pine-900/10 bg-cream-50">
+  <section class="border-t border-pine-900/10">
     <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
-      <span class="block h-px w-10 bg-gold-500" aria-hidden="true"></span>
-      <h2 class="mt-5 font-display text-3xl font-semibold text-pine-950 md:text-4xl">{h.whyHead}</h2>
-      <p class="mt-3 max-w-xl text-pine-700">{h.whySub}</p>
-      <div class="mt-12 border-t border-pine-900/10">
+      <h2 class="font-display text-3xl text-pine-950 md:text-[2.5rem]">{h.whyHead}</h2>
+      <p class="mt-3 max-w-xl text-pine-600">{h.whySub}</p>
+      <div class="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-2">
         {
-          h.why.map((w) => (
-            <div class="grid gap-3 border-b border-pine-900/10 py-7 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-14 md:py-9">
-              <h3 class="font-display text-lg font-semibold leading-snug text-pine-950 md:text-xl">{w.title}</h3>
-              <p class="max-w-[62ch] text-[15px] leading-relaxed text-pine-700">{w.desc}</p>
+          h.why.map((w, i) => (
+            <div class="flex gap-5">
+              <span class="font-display text-sm text-gold-600 tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="font-display text-lg leading-snug text-pine-950 md:text-xl">{w.title}</h3>
+                <p class="mt-2 max-w-[56ch] text-[15px] leading-relaxed text-pine-600">{w.desc}</p>
+              </div>
             </div>
           ))
         }
@@ -107,14 +107,14 @@ const prefix = lang === 'en' ? '/en' : '';
     </div>
   </section>
 
-  <!-- CTA: full-width dark band, center-aligned stack -->
-  <section class="bg-pine-950 text-cream-100">
-    <div class="mx-auto flex max-w-3xl flex-col items-center px-4 py-14 text-center sm:px-6 md:py-16">
-      <h2 class="font-display text-3xl font-semibold text-cream-50 md:text-4xl">{h.ctaHead}</h2>
-      <p class="mt-4 max-w-xl leading-relaxed text-cream-200/75">{h.ctaSub}</p>
+  <!-- CTA: dark rounded card -->
+  <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6 md:pb-28">
+    <div class="flex flex-col items-center rounded-3xl bg-pine-950 px-6 py-14 text-center md:py-20">
+      <h2 class="max-w-2xl font-display text-3xl text-cream-100 md:text-[2.5rem]">{h.ctaHead}</h2>
+      <p class="mt-4 max-w-xl leading-relaxed text-cream-200/70">{h.ctaSub}</p>
       <a
         href={withBase(`${prefix}/contact/`)}
-        class="mt-8 rounded-md bg-gold-500 px-8 py-4 text-sm font-bold tracking-wide text-pine-950 transition-colors hover:bg-gold-400"
+        class="mt-8 rounded-lg bg-gold-500 px-7 py-3.5 text-sm font-semibold text-pine-950 transition-colors hover:bg-gold-400"
       >
         {h.ctaBtn}
       </a>

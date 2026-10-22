@@ -1,31 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand: deep green + cream + muted gold */
-  --color-pine-50: #f3f6f4;
-  --color-pine-100: #e0e9e4;
-  --color-pine-200: #c2d3ca;
-  --color-pine-300: #9ab5a8;
-  --color-pine-400: #6f9283;
-  --color-pine-500: #517566;
-  --color-pine-600: #3e5d51;
-  --color-pine-700: #334b42;
-  --color-pine-800: #263a33;
-  --color-pine-900: #16332b;
-  --color-pine-950: #0e211c;
+  /* Claude-style palette: warm ink neutrals, ivory paper, clay accent.
+     Token names kept from the original brand so every component re-skins in place. */
+  --color-pine-50: #f5f4ef;
+  --color-pine-100: #e8e6dc;
+  --color-pine-200: #d1cfc5;
+  --color-pine-300: #b0aea5;
+  --color-pine-400: #8f8d85;
+  --color-pine-500: #73726c;
+  --color-pine-600: #5e5d59;
+  --color-pine-700: #4d4c48;
+  --color-pine-800: #3d3d3a;
+  --color-pine-900: #262624;
+  --color-pine-950: #141413;
 
-  --color-cream-50: #fdfcf9;
-  --color-cream-100: #faf7f0;
-  --color-cream-200: #f5efdf;
-  --color-cream-300: #ece2c8;
+  --color-cream-50: #f0eee6;
+  --color-cream-100: #faf9f5;
+  --color-cream-200: #e8e6dc;
+  --color-cream-300: #d9d5c7;
 
-  --color-gold-300: #ddc48d;
-  --color-gold-400: #d1b26a;
-  --color-gold-500: #c9a24b;
-  --color-gold-600: #a9833a;
+  --color-gold-300: #eaa98c;
+  --color-gold-400: #e08d6d;
+  --color-gold-500: #d97757;
+  --color-gold-600: #b85636;
 
   --font-sans: "Anuphan", "Noto Sans Thai", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Noto Serif Thai", Georgia, "Times New Roman", serif;
+  --font-display: "Source Serif 4", "Noto Serif Thai", Georgia, "Times New Roman", serif;
 }
 
 html {
@@ -39,8 +40,12 @@ body {
 }
 
 ::selection {
-  background: var(--color-gold-400);
+  background: color-mix(in srgb, var(--color-gold-500) 30%, transparent);
   color: var(--color-pine-950);
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.01em;
 }
 
 /* Hero entrance — runs only when the user allows motion; content is fully visible otherwise */
