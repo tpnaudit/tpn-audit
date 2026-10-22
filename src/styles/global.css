@@ -1,32 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  /* Claude-style palette: warm ink neutrals, ivory paper, clay accent.
-     Token names kept from the original brand so every component re-skins in place. */
-  --color-pine-50: #f5f4ef;
-  --color-pine-100: #e8e6dc;
-  --color-pine-200: #d1cfc5;
-  --color-pine-300: #b0aea5;
-  --color-pine-400: #8f8d85;
-  --color-pine-500: #73726c;
-  --color-pine-600: #5e5d59;
-  --color-pine-700: #4d4c48;
-  --color-pine-800: #3d3d3a;
-  --color-pine-900: #262624;
-  --color-pine-950: #141413;
+  /* TPN design system (saved Claude Design): white paper, ink text, teal-to-aqua family.
+     Legacy token names kept so every component re-skins in place:
+     pine = ink neutrals, cream = paper/tint, gold = teal family, brand = teal-deep. */
+  --color-pine-50: #f4f7f8;
+  --color-pine-100: #e6edef;
+  --color-pine-200: #dbe5e8;
+  --color-pine-300: #b9c6cb;
+  --color-pine-400: #8b9aa1;
+  --color-pine-500: #6c7a82;
+  --color-pine-600: #5d6b73;
+  --color-pine-700: #4c5a62;
+  --color-pine-800: #334149;
+  --color-pine-900: #24323a;
+  --color-pine-950: #1d2b33;
 
-  --color-cream-50: #f0eee6;
-  --color-cream-100: #faf9f5;
-  --color-cream-200: #e8e6dc;
-  --color-cream-300: #d9d5c7;
+  --color-cream-50: #eef7f8;
+  --color-cream-100: #ffffff;
+  --color-cream-200: #dbe5e8;
+  --color-cream-300: #bfe6e8;
 
-  --color-gold-300: #eaa98c;
-  --color-gold-400: #e08d6d;
-  --color-gold-500: #d97757;
-  --color-gold-600: #b85636;
+  --color-gold-300: #bfe6e8;
+  --color-gold-400: #5cc4c8;
+  --color-gold-500: #1a8a9a;
+  --color-gold-600: #0e5e6f;
 
-  --font-sans: "Anuphan", "Noto Sans Thai", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Source Serif 4", "Noto Serif Thai", Georgia, "Times New Roman", serif;
+  --color-brand: #0e5e6f;
+  --color-brand-dark: #0a4855;
+  --color-risk: #b4501b;
+
+  --font-sans: "IBM Plex Sans Thai", Sarabun, ui-sans-serif, system-ui, sans-serif;
+  --font-display: Kanit, "IBM Plex Sans Thai", system-ui, sans-serif;
 }
 
 html {
@@ -44,8 +49,14 @@ body {
   color: var(--color-pine-950);
 }
 
-h1, h2, h3 {
-  letter-spacing: -0.01em;
+/* Uppercase eyebrow label from the design system */
+.tpn-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* Hero entrance — runs only when the user allows motion; content is fully visible otherwise */

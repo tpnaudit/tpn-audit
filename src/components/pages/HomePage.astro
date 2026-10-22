@@ -12,46 +12,62 @@ const prefix = lang === 'en' ? '/en' : '';
 ---
 
 <Base lang={lang} title={h.metaTitle} description={h.metaDesc} page="">
-  <!-- Hero: ivory paper, large serif headline -->
-  <section>
-    <div class="mx-auto max-w-6xl px-4 pb-16 pt-16 sm:px-6 md:pb-24 md:pt-24">
-      <p class="rise inline-flex items-center gap-2 rounded-full border border-pine-900/10 bg-cream-50 px-3.5 py-1.5 text-xs font-medium tracking-wide text-pine-700">
-        <span class="h-1.5 w-1.5 rounded-full bg-gold-500" aria-hidden="true"></span>
+  <!-- Hero: white paper, Kanit headline in teal-deep, folded ribbon -->
+  <section class="relative overflow-hidden">
+    <!-- Folded ribbon: flat bands aqua-light to teal-deep, bleeding off the top right -->
+    <svg class="pointer-events-none absolute -right-28 top-0 hidden h-[360px] w-[480px] xl:block" viewBox="0 0 560 420" aria-hidden="true">
+      <g fill="none" stroke-width="56" stroke-linecap="butt">
+        <line x1="40" y1="-30" x2="300" y2="140" stroke="#bfe6e8" />
+        <line x1="300" y1="140" x2="140" y2="300" stroke="#5cc4c8" />
+        <line x1="140" y1="300" x2="470" y2="180" stroke="#1a8a9a" />
+        <line x1="470" y1="180" x2="620" y2="440" stroke="#0e5e6f" />
+      </g>
+    </svg>
+    <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-16 sm:px-6 md:pb-24 md:pt-24">
+      <p class="rise tpn-label flex items-center gap-3 text-brand">
+        <span class="h-[2px] w-8 bg-gold-500" aria-hidden="true"></span>
         {h.heroKicker}
       </p>
-      <h1 class="rise rise-1 mt-8 max-w-4xl whitespace-pre-line font-display text-[2rem] font-normal leading-[1.35] text-pine-950 [text-wrap:balance] md:text-[3.1rem] md:leading-[1.25]">
+      <h1 class="rise rise-1 mt-8 max-w-3xl whitespace-pre-line font-display text-[2.1rem] font-semibold leading-[1.3] text-brand [text-wrap:balance] md:text-[3.25rem] md:leading-[1.2]">
         {h.heroTitle}
       </h1>
       <p class="rise rise-2 mt-7 max-w-2xl text-base leading-relaxed text-pine-600 md:text-lg">{h.heroSub}</p>
       <div class="rise rise-3 mt-10 flex flex-wrap items-center gap-3">
         <a
           href={withBase(`${prefix}/contact/`)}
-          class="rounded-lg bg-pine-950 px-6 py-3.5 text-sm font-semibold text-cream-100 transition-colors hover:bg-pine-800"
+          class="bg-brand px-6 py-3.5 text-sm font-semibold text-cream-100 transition-colors hover:bg-brand-dark"
         >
           {h.heroCta}
         </a>
         <a
           href={withBase(`${prefix}/services/`)}
-          class="rounded-lg border border-pine-900/15 bg-white/60 px-6 py-3.5 text-sm font-semibold text-pine-950 transition-colors hover:border-pine-900/30 hover:bg-white"
+          class="border border-brand px-6 py-3.5 text-sm font-semibold text-brand transition-colors hover:bg-cream-50"
         >
           {h.heroCta2}
         </a>
       </div>
 
-      <!-- Trust indicators -->
-      <div class="mt-16 grid grid-cols-2 gap-3 md:mt-20 md:grid-cols-4">
+      <!-- Trust indicators: stat circles -->
+      <div class="mt-16 grid grid-cols-2 gap-x-4 gap-y-10 border-t-2 border-gold-500 pt-10 md:mt-20 md:grid-cols-4">
         {
-          h.trust.map((s) => (
-            <div class="flex flex-col rounded-2xl border border-pine-900/10 bg-cream-50 px-5 py-6">
+          h.trust.map((s, i) => (
+            <div class="flex flex-col items-center gap-3 text-center">
               <div
                 class:list={[
-                  'flex flex-1 items-end font-display text-pine-950',
-                  s.value.length > 6 ? 'text-xl leading-snug [text-wrap:balance] md:text-[1.45rem]' : 'text-3xl md:text-4xl',
+                  'flex h-28 w-28 items-center justify-center rounded-full border-[6px] px-2 md:h-32 md:w-32',
+                  i === 1 ? 'border-gold-500' : 'border-gold-300',
                 ]}
               >
-                {s.value}
+                <b
+                  class:list={[
+                    'font-display font-semibold leading-tight text-brand',
+                    s.value.length > 6 ? 'text-[15px] md:text-base' : 'text-[26px] md:text-[30px]',
+                  ]}
+                >
+                  {s.value}
+                </b>
               </div>
-              <div class="mt-2 text-xs text-pine-600 md:text-[13px]">{s.label}</div>
+              <span class="tpn-label max-w-[14rem] text-pine-600">{s.label}</span>
             </div>
           ))
         }
@@ -60,22 +76,22 @@ const prefix = lang === 'en' ? '/en' : '';
   </section>
 
   <!-- Services overview: card grid -->
-  <section class="border-t border-pine-900/10 bg-cream-50">
+  <section class="bg-cream-50">
     <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
-      <h2 class="font-display text-3xl text-pine-950 md:text-[2.5rem]">{h.servicesHead}</h2>
+      <h2 class="font-display font-semibold text-3xl text-brand md:text-[2.5rem]">{h.servicesHead}</h2>
       <p class="mt-3 max-w-xl text-pine-600">{h.servicesSub}</p>
       <div class="mt-12 grid gap-4 md:grid-cols-2">
         {
           d.services.list.map((s) => (
             <a
               href={withBase(`${prefix}/services/#${s.id}`)}
-              class="group flex flex-col rounded-2xl border border-pine-900/10 bg-cream-100 p-7 transition-all hover:-translate-y-0.5 hover:border-pine-900/20 hover:shadow-[0_8px_30px_-12px_rgba(20,20,19,0.18)] md:p-8"
+              class="group flex flex-col border-t-2 border-gold-500 bg-cream-100 p-7 transition-colors hover:border-brand md:p-8"
             >
-              <h3 class="font-display text-xl text-pine-950 md:text-[22px]">{s.title}</h3>
+              <h3 class="font-display text-xl text-brand md:text-[22px]">{s.title}</h3>
               <p class="mt-3 max-w-md flex-1 text-sm leading-relaxed text-pine-600">{s.short}</p>
-              <span class="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-pine-950">
+              <span class="mt-6 inline-flex items-center gap-2 font-display text-[13px] font-medium text-brand">
                 {h.servicesMore}
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-gold-600 transition-transform group-hover:translate-x-1">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-gold-500 transition-transform group-hover:translate-x-1">
                   <path d="M5 12h14m-6-6 6 6-6 6" />
                 </svg>
               </span>
@@ -89,15 +105,15 @@ const prefix = lang === 'en' ? '/en' : '';
   <!-- Why TPN -->
   <section class="border-t border-pine-900/10">
     <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
-      <h2 class="font-display text-3xl text-pine-950 md:text-[2.5rem]">{h.whyHead}</h2>
+      <h2 class="font-display font-semibold text-3xl text-brand md:text-[2.5rem]">{h.whyHead}</h2>
       <p class="mt-3 max-w-xl text-pine-600">{h.whySub}</p>
       <div class="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-2">
         {
           h.why.map((w, i) => (
-            <div class="flex gap-5">
-              <span class="font-display text-sm text-gold-600 tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+            <div class="flex gap-5 border-t-2 border-gold-500 pt-5">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center bg-brand font-display text-lg font-semibold text-white">{String(i + 1).padStart(2, '0')}</span>
               <div>
-                <h3 class="font-display text-lg leading-snug text-pine-950 md:text-xl">{w.title}</h3>
+                <h3 class="font-display text-lg leading-snug text-brand md:text-xl">{w.title}</h3>
                 <p class="mt-2 max-w-[56ch] text-[15px] leading-relaxed text-pine-600">{w.desc}</p>
               </div>
             </div>
@@ -107,14 +123,14 @@ const prefix = lang === 'en' ? '/en' : '';
     </div>
   </section>
 
-  <!-- CTA: dark rounded card -->
+  <!-- CTA: teal-deep band -->
   <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6 md:pb-28">
-    <div class="flex flex-col items-center rounded-3xl bg-pine-950 px-6 py-14 text-center md:py-20">
-      <h2 class="max-w-2xl font-display text-3xl text-cream-100 md:text-[2.5rem]">{h.ctaHead}</h2>
-      <p class="mt-4 max-w-xl leading-relaxed text-cream-200/70">{h.ctaSub}</p>
+    <div class="flex flex-col items-center bg-brand px-6 py-14 text-center md:py-20">
+      <h2 class="max-w-2xl font-display font-semibold text-3xl text-cream-100 md:text-[2.5rem]">{h.ctaHead}</h2>
+      <p class="mt-4 max-w-xl leading-relaxed text-cream-300">{h.ctaSub}</p>
       <a
         href={withBase(`${prefix}/contact/`)}
-        class="mt-8 rounded-lg bg-gold-500 px-7 py-3.5 text-sm font-semibold text-pine-950 transition-colors hover:bg-gold-400"
+        class="mt-8 bg-white px-7 py-3.5 text-sm font-semibold text-brand transition-colors hover:bg-cream-50"
       >
         {h.ctaBtn}
       </a>
