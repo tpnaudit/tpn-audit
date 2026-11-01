@@ -114,6 +114,17 @@ const th = {
         ],
       },
       {
+        id: 'healthcheck',
+        title: 'Health Check งบการเงินเบื้องต้น',
+        short: 'ให้ข้อสังเกตและประเด็นความเสี่ยงของงบการเงินเบื้องต้น กำหนดขอบเขตเป็นราย Project',
+        price: 'เริ่มต้น 2,000 บาท (กิจการซับซ้อนน้อย)',
+        body: [
+          'บริการให้ข้อสังเกตงบการเงินเบื้องต้น (Health Check) เหมาะกับกิจการที่อยากทราบว่างบการเงินของตนมีประเด็นหรือความเสี่ยงอะไรที่ควรระวัง ก่อนนำส่งหรือก่อนตัดสินใจเรื่องสำคัญ โดยยังไม่ต้องเข้าสู่กระบวนการตรวจสอบและแสดงความเห็นแบบเต็มรูปแบบ',
+          'เรากำหนดขอบเขตงานเป็นราย Project ตามที่ตกลงกัน เช่น สอบทานความสมเหตุสมผลของรายการสำคัญ จุดที่อาจมีความเสี่ยงทางภาษี ความครบถ้วนของการบันทึกบัญชี และความถูกต้องของการแสดงรายการในงบ แล้วสรุปเป็นข้อสังเกตพร้อมคำแนะนำเบื้องต้นให้ท่านนำไปปรับปรุงต่อได้',
+          'ค่าบริการเริ่มต้น 2,000 บาทสำหรับกิจการที่มีความซับซ้อนน้อย และประเมินเพิ่มตามปริมาณรายการและขอบเขตที่ตกลงกัน เป็นจุดเริ่มต้นที่เหมาะสำหรับเจ้าของกิจการที่ยังไม่แน่ใจว่างบของตนเรียบร้อยดีหรือไม่ ก่อนตัดสินใจทำงานตรวจสอบเต็มรูปแบบ',
+        ],
+      },
+      {
         id: 'boi',
         title: 'ตรวจสอบกิจการ BOI',
         short: 'ตรวจสอบและรับรองรายงานสำหรับกิจการที่ได้รับการส่งเสริมการลงทุนจาก BOI',
@@ -128,7 +139,7 @@ const th = {
         id: 'bookkeeping',
         title: 'รับทำบัญชีรายเดือน',
         short: 'ดูแลบัญชีและยื่นภาษีให้ครบทุกเดือน โดยนักบัญชีผู้รับผิดชอบประจำที่ติดต่อได้โดยตรง',
-        price: 'เริ่มต้น 3,000 บาท/เดือน',
+        price: 'เริ่มต้น 5,000 บาท/เดือน',
         body: [
           'บริการจัดทำบัญชีรายเดือนสำหรับนิติบุคคลที่ต้องการให้งานบัญชีและภาษีอยู่ในความดูแลของผู้ประกอบวิชาชีพตลอดทั้งปี เราบันทึกรายการบัญชีตามมาตรฐานการรายงานทางการเงิน จัดทำงบทดลองและรายงานทางการเงินประจำเดือน พร้อมตรวจสอบความครบถ้วนถูกต้องของเอกสารประกอบรายการก่อนบันทึกทุกครั้ง',
           'ขอบเขตงานครอบคลุมการยื่นแบบภาษีตามกำหนดเวลาครบทุกประเภท ทั้งภาษีเงินได้หัก ณ ที่จ่าย (ภ.ง.ด.1, ภ.ง.ด.3, ภ.ง.ด.53) ภาษีมูลค่าเพิ่ม (ภ.พ.30) แบบนำส่งเงินสมทบประกันสังคม ตลอดจนภาษีเงินได้นิติบุคคลครึ่งปี (ภ.ง.ด.51) โดยเราติดตามกำหนดนำส่งให้ทั้งหมด ท่านจึงไม่ต้องกังวลเรื่องเบี้ยปรับและเงินเพิ่มจากการยื่นล่าช้า',
@@ -139,7 +150,7 @@ const th = {
         id: 'dormant',
         title: 'ปิดงบการเงิน (บริษัทไม่ได้ดำเนินกิจการ)',
         short: 'จัดทำ ตรวจสอบ และนำส่งงบการเงินประจำปีสำหรับบริษัทที่หยุดดำเนินกิจการ ราคาเดียวจบ',
-        price: '7,500 บาท (รวมค่าสอบบัญชีแล้ว)',
+        price: '8,900 บาท (รวมค่าสอบบัญชีแล้ว)',
         body: [
           'บริษัทที่จดทะเบียนไว้แต่ยังไม่ได้เริ่มดำเนินกิจการ หรือหยุดดำเนินกิจการชั่วคราว ยังคงมีหน้าที่ตามกฎหมายในการจัดทำบัญชี ปิดงบการเงินประจำปี ให้ผู้สอบบัญชีรับอนุญาตตรวจสอบ และนำส่งต่อกรมพัฒนาธุรกิจการค้าและกรมสรรพากรตามกำหนดเวลา แม้จะไม่มีรายได้เกิดขึ้นในรอบบัญชีนั้นก็ตาม',
           'บริการนี้ครอบคลุมตั้งแต่การจัดทำงบการเงินและหมายเหตุประกอบงบการเงิน การตรวจสอบและลงลายมือชื่อรับรองโดยผู้สอบบัญชีรับอนุญาต การจัดเตรียมเอกสารประกอบการประชุมสามัญผู้ถือหุ้น ไปจนถึงการนำส่งงบการเงินต่อกรมพัฒนาธุรกิจการค้าและการยื่นแบบ ภ.ง.ด.50 ในอัตราค่าบริการเดียวจบ ไม่มีค่าใช้จ่ายเพิ่มเติมภายหลัง',
@@ -150,7 +161,8 @@ const th = {
         id: 'registration',
         title: 'จดทะเบียนบริษัท',
         short: 'ดำเนินการจดทะเบียนจัดตั้งบริษัทครบวงจร ตั้งแต่จองชื่อจนได้เลขทะเบียนนิติบุคคล',
-        price: '8,900 บาท (รวมค่าธรรมเนียมแล้ว)',
+        price: '9,900 บาท (รวมค่าธรรมเนียมแล้ว)',
+        note: 'เก็บค่ามัดจำปรึกษา/เริ่มงานก่อน 2,000 บาท',
         body: [
           'บริการจดทะเบียนจัดตั้งบริษัทจำกัดแบบครบวงจร ดำเนินการให้ตั้งแต่การตรวจสอบและจองชื่อนิติบุคคล การจัดทำหนังสือบริคณห์สนธิ การกำหนดวัตถุประสงค์ของกิจการ โครงสร้างผู้ถือหุ้นและทุนจดทะเบียน จนถึงการยื่นคำขอจดทะเบียนต่อกรมพัฒนาธุรกิจการค้าจนได้รับเลขทะเบียนนิติบุคคล',
           'อัตราค่าบริการรวมค่าธรรมเนียมราชการเรียบร้อยแล้ว ครอบคลุมเอกสารจัดตั้งครบชุด หนังสือรับรองบริษัท ตราประทับบริษัท และคำแนะนำในการเปิดบัญชีธนาคารในนามนิติบุคคล พร้อมให้คำปรึกษาเรื่องการขึ้นทะเบียนภาษีมูลค่าเพิ่มและการขึ้นทะเบียนนายจ้างกับสำนักงานประกันสังคมเมื่อกิจการเข้าเงื่อนไข',
@@ -354,6 +366,17 @@ const en = {
         ],
       },
       {
+        id: 'healthcheck',
+        title: 'Preliminary Financial Statement Health Check',
+        short: 'Preliminary observations and risk points on your financial statements, scoped per project.',
+        price: 'From THB 2,000 (low-complexity businesses)',
+        body: [
+          'A preliminary financial statement health check suits businesses that want to know whether their financial statements carry any issues or risks worth watching — before filing, or before an important decision — without yet entering a full audit and opinion engagement.',
+          'We agree the scope project by project: for example, reviewing the reasonableness of key balances, potential tax-risk areas, the completeness of bookkeeping, and the correctness of presentation in the statements — then summarise our observations with preliminary recommendations you can act on.',
+          'Fees start at THB 2,000 for low-complexity businesses and are quoted upward by transaction volume and agreed scope. It is a sensible starting point for owners who are not yet sure their statements are in order, before committing to a full audit.',
+        ],
+      },
+      {
         id: 'boi',
         title: 'BOI Audit',
         short: 'Audit and certification for businesses promoted by the Board of Investment.',
@@ -368,7 +391,7 @@ const en = {
         id: 'bookkeeping',
         title: 'Monthly Bookkeeping',
         short: 'Monthly books and every tax filing handled, with a dedicated accountant you can reach directly.',
-        price: 'From THB 3,000 / month',
+        price: 'From THB 5,000 / month',
         body: [
           'Monthly bookkeeping for juristic persons that want their accounting and tax obligations in professional hands all year round. We record transactions in accordance with Thai financial reporting standards, prepare monthly trial balances and management reports, and verify the completeness of supporting documents before anything is posted.',
           'The engagement covers every periodic tax filing on schedule: withholding tax returns (PND.1, PND.3, PND.53), VAT returns (PP.30), social security contributions, and the half-year corporate income tax return (PND.51). We track all filing deadlines on your behalf, so late-filing surcharges and penalties never become your problem.',
@@ -379,7 +402,7 @@ const en = {
         id: 'dormant',
         title: 'Dormant Company Annual Filing',
         short: 'Preparation, audit, and filing of annual financial statements for dormant companies at one flat fee.',
-        price: 'THB 7,500 (audit fee included)',
+        price: 'THB 8,900 (audit fee included)',
         body: [
           'A company that is registered but has not yet begun trading, or has temporarily ceased operations, still carries the legal obligation to maintain accounts, prepare annual financial statements, have them audited by a licensed CPA, and file them with the Department of Business Development and the Revenue Department on time — even with no revenue in the period.',
           'This service covers preparation of the financial statements and notes, audit and sign-off by a licensed CPA, preparation of the documents for the annual general meeting, filing of the financial statements with the Department of Business Development, and submission of the PND.50 return — all at a single flat fee with no charges added later.',
@@ -390,7 +413,8 @@ const en = {
         id: 'registration',
         title: 'Company Registration',
         short: 'End-to-end incorporation, from name reservation through to your juristic person registration number.',
-        price: 'THB 8,900 (government fees included)',
+        price: 'THB 9,900 (government fees included)',
+        note: 'THB 2,000 consultation/booking deposit to start',
         body: [
           'End-to-end registration of a Thai limited company: name availability check and reservation, preparation of the memorandum of association, definition of business objectives, shareholder structure and registered capital, and filing the registration application with the Department of Business Development through to issue of the registration number.',
           'The fee includes all government charges, a complete set of incorporation documents, the company affidavit, the company seal, and guidance on opening a corporate bank account — together with advice on VAT registration and employer registration with the Social Security Office once your business meets the thresholds.',

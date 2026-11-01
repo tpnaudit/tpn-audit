@@ -9,6 +9,18 @@ const { lang } = Astro.props;
 const d = t(lang);
 const s = d.services;
 const prefix = lang === 'en' ? '/en' : '';
+const L =
+  lang === 'en'
+    ? { fee: 'Fee', detail: 'View details', overview: 'All services' }
+    : { fee: 'ค่าบริการ', detail: 'ดูรายละเอียด', overview: 'บริการทั้งหมด' };
+// Split a price string into a bold headline and a parenthetical tail; flag fixed (has a number).
+const parsePrice = (price: string) => {
+  const fixed = /\d/.test(price);
+  const i = price.indexOf('(');
+  const main = i === -1 ? price : price.slice(0, i).trim();
+  const paren = i === -1 ? '' : price.slice(i).trim();
+  return { fixed, main, paren };
+};
 ---
 
 <Base lang={lang} title={s.metaTitle} description={s.metaDesc} page="services" faqSchema>
@@ -21,25 +33,89 @@ const prefix = lang === 'en' ? '/en' : '';
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 py-6 sm:px-6 md:py-10">
-    {
-      s.list.map((sv, i) => (
-        <article id={sv.id} class="scroll-mt-24 border-b border-pine-900/10 py-12 last:border-b-0 md:py-16">
-          <div class="grid gap-8 md:grid-cols-[1fr_2fr]">
-            <div>
-              <h2 class="font-display font-semibold text-2xl text-brand md:text-[28px] md:leading-snug">{sv.title}</h2>
-              <span class="mt-5 inline-block rounded-full bg-cream-50 px-3.5 py-1.5 font-display text-xs font-medium text-brand">
-                {sv.price}
+  <!-- Service overview: scannable cards with prominent pricing -->
+  <section class="mx-auto max-w-6xl px-4 pt-10 sm:px-6 md:pt-14">
+    <p class="tpn-label flex items-center gap-3 text-brand">
+      <span class="h-[2px] w-8 bg-gold-500" aria-hidden="true"></span>
+      {L.overview}
+    </p>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        s.list.map((sv) => {
+          const p = parsePrice(sv.price);
+          const note = (sv as { note?: string }).note;
+          return (
+            <a
+              href={`#${sv.id}`}
+              class="group flex flex-col border-t-2 border-gold-500 bg-cream-100 p-6 transition-colors hover:border-brand"
+            >
+              <h3 class="font-display text-[19px] font-semibold leading-snug text-brand">{sv.title}</h3>
+              {p.fixed ? (
+                <p class="mt-4 font-display text-[22px] font-semibold leading-tight text-brand">
+                  {p.main}
+                  {p.paren && <span class="mt-0.5 block text-xs font-normal text-pine-500">{p.paren}</span>}
+                </p>
+              ) : (
+                <p class="tpn-label mt-4 text-gold-600">{sv.price}</p>
+              )}
+              {note && <p class="mt-1.5 text-xs text-pine-500">{note}</p>}
+              <p class="mt-4 flex-1 text-sm leading-relaxed text-pine-600">{sv.short}</p>
+              <span class="mt-6 inline-flex items-center gap-1.5 font-display text-[13px] font-medium text-brand">
+                {L.detail}
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-gold-500 transition-transform group-hover:translate-x-1"
+                >
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
               </span>
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <!-- Service detail sections -->
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 md:py-12">
+    {
+      s.list.map((sv) => {
+        const p = parsePrice(sv.price);
+        const note = (sv as { note?: string }).note;
+        return (
+          <article id={sv.id} class="scroll-mt-24 border-b border-pine-900/10 py-12 last:border-b-0 md:py-16">
+            <div class="grid gap-8 md:grid-cols-[1fr_2fr]">
+              <div>
+                <h2 class="font-display font-semibold text-2xl text-brand md:text-[28px] md:leading-snug">{sv.title}</h2>
+                <div class="mt-6 border-t-2 border-gold-500 pt-4">
+                  <div class="tpn-label text-gold-600">{L.fee}</div>
+                  {p.fixed ? (
+                    <p class="mt-1.5 font-display text-2xl font-semibold leading-tight text-brand">
+                      {p.main}
+                      {p.paren && <span class="mt-1 block text-sm font-normal text-pine-500">{p.paren}</span>}
+                    </p>
+                  ) : (
+                    <p class="mt-1.5 font-display text-lg font-medium text-pine-700">{sv.price}</p>
+                  )}
+                  {note && <p class="mt-2 text-xs text-pine-500">{note}</p>}
+                </div>
+              </div>
+              <div class="space-y-5">
+                {sv.body.map((para) => (
+                  <p class="leading-relaxed text-pine-800">{para}</p>
+                ))}
+              </div>
             </div>
-            <div class="space-y-5">
-              {sv.body.map((p) => (
-                <p class="leading-relaxed text-pine-800">{p}</p>
-              ))}
-            </div>
-          </div>
-        </article>
-      ))
+          </article>
+        );
+      })
     }
   </section>
 
